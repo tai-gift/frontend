@@ -1,101 +1,186 @@
 import Image from "next/image";
+import Link from "next/link";
+import TaikoIcon from "/public/svgs/taiko-icon.svg";
+import Fire from "/public/svgs/fire.svg";
+import Colours from "/public/svgs/colours.svg";
+import UserIcon from "/public/svgs/yellow-user-icon.svg";
+import TaikoLogo from "/public/svgs/taiko-logo.svg";
+import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
+import PrizePoolIcon from "/public/svgs/prize-pool.svg";
+import FirstPrize from "/public/svgs/first-prize.svg";
+import PrizeCard from "./_components/dashboard/prize-card";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <section>
+      <header className="no-scrollbar flex justify-center gap-4 overflow-x-scroll bg-CharcoalGrey p-2.5 text-sm md:gap-9">
+        <div className="flex shrink-0 items-center gap-2">
+          <span className="flex size-[29.67px] items-center justify-center rounded-full bg-CaribbeanGreen">
+            C
+          </span>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+          <p>@cystic deposited</p>
+
+          <div className="flex items-center gap-0.5">
+            <span className="flex size-4 items-center justify-center rounded-full bg-DimorphothecaMagenta">
+              <Image src={TaikoIcon} alt="taiko icon" />
+            </span>
+
+            <p>2,000</p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <div className="flex shrink-0 items-center gap-2">
+          <span className="flex size-[29.67px] items-center justify-center rounded-full bg-DeepFuchsia">
+            B
+          </span>
+
+          <p>@bami won</p>
+
+          <div className="flex items-center gap-0.5">
+            <span className="flex size-4 items-center justify-center rounded-full bg-DimorphothecaMagenta">
+              <Image src={TaikoIcon} alt="taiko icon" />
+            </span>
+
+            <p>2,000 in daily draws</p>
+          </div>
+        </div>
+      </header>
+
+      <section className="space-y-4 px-8 py-4">
+        <div className="flex items-center justify-between py-0.5">
+          <button className="bg-FuscousGrey-100/[57%] flex items-center justify-center gap-1.5 rounded-[27.39px] px-2 py-1">
+            <Image src={Fire} alt="fire" />
+
+            <span className="font-sans text-base">1</span>
+          </button>
+
+          <h2 className="font-luckiestGuy text-[1.426rem] leading-[1.426rem]">
+            WELCOME
+          </h2>
+
+          <button className="bg-FuscousGrey-100/[57%] flex items-center justify-center gap-1.5 rounded-[27.39px] px-2.5 py-2">
+            <Image src={Colours} alt="colours" />
+
+            <span className="text-[0.71rem]">0x</span>
+          </button>
+        </div>
+
+        <div className="relative h-[296px] rounded-lg bg-donationImage bg-cover bg-center bg-no-repeat">
+          <div className="absolute bottom-6 left-[18px]">
+            <div className="mb-9 space-y-2">
+              <Image src={TaikoLogo} alt="Taiko logo" />
+
+              <p className="w-[126px] text-[1.141rem] font-light">
+                For <span className="font-semibold">Cancer</span> initiative
+              </p>
+            </div>
+
+            <div className="mb-2 flex items-center gap-1 rounded-[36.52px] bg-white/40 px-2 py-1.5 backdrop-blur-[31.96px]">
+              <p className="text-[0.71rem] font-bold">200,000</p>
+
+              <div className="flex items-center">
+                <Image src={TaikoIconMono} alt="Taiko icon mono" />
+                <span className="text-xs">taiko raised</span>
+              </div>
+            </div>
+
+            <Link href="#" className="text-xs underline underline-offset-1">
+              Learn more
+            </Link>
+          </div>
+
+          <p className="absolute bottom-[118px] right-[21px] w-[89.02px] text-[1.141rem] font-light">
+            Save a <span className="font-semibold">life</span> today
+          </p>
+
+          <div className="absolute bottom-12 right-[22px] flex items-center gap-1 rounded-[36.52px] bg-white/40 px-2 py-1.5 backdrop-blur-[31.96px]">
+            <Image src={UserIcon} alt="user icon" />
+
+            <p className="text-[0.71rem]">
+              <span className="font-bold">70,000</span> donors
+            </p>
+          </div>
+        </div>
+
+        <div className="space-y-3">
+          <div className="flex items-center justify-between">
+            <h2 className="font-luckiestGuy text-[1.4268rem]">Draws</h2>
+
+            <Link
+              href="/about"
+              className="text-xs font-medium underline underline-offset-1"
+            >
+              About Tai.Gift
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 rounded-9 bg-HeavyMetal p-1 text-base text-PastelGrey">
+            <Link
+              href="#"
+              className="rounded-9 bg-white p-2 text-center text-Zeus"
+            >
+              Daily
+            </Link>
+            <Link href="#" className="rounded-9 p-2 text-center">
+              Weekly
+            </Link>
+            <Link href="#" className="rounded-9 p-2 text-center">
+              Daily
+            </Link>
+          </div>
+
+          <div className="blaze-gradient border-NeonPink neon-bx-shadow flex justify-between rounded-9 border p-3">
+            <div className="flex gap-2.5">
+              <Image src={PrizePoolIcon} alt="" />
+
+              <div>
+                <p className="font-semibold">Prize Pool</p>
+
+                <div className="flex items-center gap-1">
+                  <p className="font-bold">100,000</p>
+                  <div className="flex items-center">
+                    <Image src={TaikoIconMono} alt="Taiko icon mono" />
+                    <span className="text-xs">taiko</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-1.5">
+              <p className="text-sm font-semibold">Next Draw starts in</p>
+              <div className="ml-auto flex justify-end gap-1">
+                <span className="bg-FuscousGrey-200 rounded-sm p-1">04</span>
+                <span className="text-base">:</span>
+                <span className="bg-FuscousGrey-200 rounded-sm p-1">45</span>
+                <span className="text-base">:</span>
+                <span className="bg-FuscousGrey-200 rounded-sm p-1">22</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="dark-gradient-1 flex items-center justify-between rounded-9 px-3 py-3.5 font-semibold">
+            <div className="flex items-center gap-2">
+              <Image src={FirstPrize} alt="" />
+              <span className="text-base">First prize</span>
+            </div>
+
+            <p className="text-lg">₦ 30,000</p>
+          </div>
+
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+            <PrizeCard number={2} price="15,000" />
+            <PrizeCard number={3} price="10,000" />
+            <PrizeCard number={4} price="2,500" />
+            <PrizeCard number={5} price="2,500" />
+            <PrizeCard number={6} price="2,500" />
+            <PrizeCard number={7} price="2,500" />
+            <PrizeCard number={8} price="2,500" />
+            <PrizeCard number={9} price="2,500" />
+            <PrizeCard number={10} price="2,500" />
+          </div>
+        </div>
+      </section>
+    </section>
   );
 }
