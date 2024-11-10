@@ -6,13 +6,24 @@ import Colours from "/public/svgs/colours.svg";
 import UserIcon from "/public/svgs/yellow-user-icon.svg";
 import TaikoLogo from "/public/svgs/taiko-logo.svg";
 import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
-import PrizePoolIcon from "/public/svgs/prize-pool.svg";
-import FirstPrize from "/public/svgs/first-prize.svg";
-import PrizeCard from "./_components/dashboard/prize-card";
+import DonateButton from "@/components/ui/DonateButton";
+import { tabs } from "@/utils/constant";
+import DrawsRanking from "@/components/DrawsRanking";
 
-export default function Home() {
+export default function Home({
+  searchParams,
+}: {
+  searchParams: {
+    tab: string | undefined;
+    page: string | undefined;
+    search: string | undefined;
+    subTab?: string;
+  };
+}) {
+  const currentTab = searchParams.tab || "Daily";
+
   return (
-    <section>
+    <section className="relative">
       <header className="no-scrollbar flex justify-center gap-4 overflow-x-scroll bg-CharcoalGrey p-2.5 text-sm md:gap-9">
         <div className="flex shrink-0 items-center gap-2">
           <span className="flex size-[29.67px] items-center justify-center rounded-full bg-CaribbeanGreen">
@@ -49,7 +60,7 @@ export default function Home() {
 
       <section className="space-y-4 px-8 py-4">
         <div className="flex items-center justify-between py-0.5">
-          <button className="bg-FuscousGrey-100/[57%] flex items-center justify-center gap-1.5 rounded-[27.39px] px-2 py-1">
+          <button className="flex items-center justify-center gap-1.5 rounded-[27.39px] bg-FuscousGrey-100/[57%] px-2 py-1">
             <Image src={Fire} alt="fire" />
 
             <span className="font-sans text-base">1</span>
@@ -59,7 +70,7 @@ export default function Home() {
             WELCOME
           </h2>
 
-          <button className="bg-FuscousGrey-100/[57%] flex items-center justify-center gap-1.5 rounded-[27.39px] px-2.5 py-2">
+          <button className="flex items-center justify-center gap-1.5 rounded-[27.39px] bg-FuscousGrey-100/[57%] px-2.5 py-2">
             <Image src={Colours} alt="colours" />
 
             <span className="text-[0.71rem]">0x</span>
@@ -79,13 +90,16 @@ export default function Home() {
             <div className="mb-2 flex items-center gap-1 rounded-[36.52px] bg-white/40 px-2 py-1.5 backdrop-blur-[31.96px]">
               <p className="text-[0.71rem] font-bold">200,000</p>
 
-              <div className="flex items-center">
+              <div className="flex items-center gap-2">
                 <Image src={TaikoIconMono} alt="Taiko icon mono" />
                 <span className="text-xs">taiko raised</span>
               </div>
             </div>
 
-            <Link href="#" className="text-xs underline underline-offset-1">
+            <Link
+              href="/learnmore"
+              className="text-xs underline underline-offset-1"
+            >
               Learn more
             </Link>
           </div>
@@ -116,71 +130,21 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-3 gap-2 rounded-9 bg-HeavyMetal p-1 text-base text-PastelGrey">
-            <Link
-              href="#"
-              className="rounded-9 bg-white p-2 text-center text-Zeus"
-            >
-              Daily
-            </Link>
-            <Link href="#" className="rounded-9 p-2 text-center">
-              Weekly
-            </Link>
-            <Link href="#" className="rounded-9 p-2 text-center">
-              Daily
-            </Link>
+            {tabs.slice(1).map((tab, index) => (
+              <Link
+                key={index}
+                href={`?tab=${tab}`}
+                className={`rounded-lg p-2 text-center ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
+              >
+                {tab}
+              </Link>
+            ))}
           </div>
 
-          <div className="blaze-gradient border-NeonPink neon-bx-shadow flex justify-between rounded-9 border p-3">
-            <div className="flex gap-2.5">
-              <Image src={PrizePoolIcon} alt="" />
-
-              <div>
-                <p className="font-semibold">Prize Pool</p>
-
-                <div className="flex items-center gap-1">
-                  <p className="font-bold">100,000</p>
-                  <div className="flex items-center">
-                    <Image src={TaikoIconMono} alt="Taiko icon mono" />
-                    <span className="text-xs">taiko</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-1.5">
-              <p className="text-sm font-semibold">Next Draw starts in</p>
-              <div className="ml-auto flex justify-end gap-1">
-                <span className="bg-FuscousGrey-200 rounded-sm p-1">04</span>
-                <span className="text-base">:</span>
-                <span className="bg-FuscousGrey-200 rounded-sm p-1">45</span>
-                <span className="text-base">:</span>
-                <span className="bg-FuscousGrey-200 rounded-sm p-1">22</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="dark-gradient-1 flex items-center justify-between rounded-9 px-3 py-3.5 font-semibold">
-            <div className="flex items-center gap-2">
-              <Image src={FirstPrize} alt="" />
-              <span className="text-base">First prize</span>
-            </div>
-
-            <p className="text-lg">₦ 30,000</p>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-            <PrizeCard number={2} price="15,000" />
-            <PrizeCard number={3} price="10,000" />
-            <PrizeCard number={4} price="2,500" />
-            <PrizeCard number={5} price="2,500" />
-            <PrizeCard number={6} price="2,500" />
-            <PrizeCard number={7} price="2,500" />
-            <PrizeCard number={8} price="2,500" />
-            <PrizeCard number={9} price="2,500" />
-            <PrizeCard number={10} price="2,500" />
-          </div>
+          <DrawsRanking />
         </div>
       </section>
+      <DonateButton />
     </section>
   );
 }

@@ -39,6 +39,16 @@ export default {
     backgroundImage: {
       donationImage: "url(/images/front-view-positive-woman-with-cancer.png)",
       aboutBgImage: "url(/images/about-bg-image.png)",
+      activeBgLinear:
+        "linear-gradient(155.56deg, #DAC02E 15.62%, #E81899 104.34%)",
+      tablebgLinear:
+        "linear-gradient(278.27deg, #43423B -60.13%, #2E2D2A 78.23%)",
+      countbgLinear: "linear-gradient(180deg, #C83EB8 0%, #8808C3 100%)",
+      blackbgLinear: "linear-gradient(278.27deg, #43423B -60.13%, #2E2D2A 78.23%)",
+      leaderboardbgLinear: "linear-gradient(180deg, #FFCE00 0%, #F28212 100%)",
+    },
+    backdropBlur: {
+      20: "20px",
     },
   },
   plugins: [],

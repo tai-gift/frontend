@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { fustat, luckiestGuy } from "../../public/fonts";
-import SideNav from "./_components/side-nav";
-import RightSideBar from "./_components/right-side-bar";
+import SideNav from "@/components/side-nav";
+import RightSideBar from "@/components/right-side-bar";
 import "./globals.css";
+import MobileNav from "@/components/MobileNav";
 
 export const metadata: Metadata = {
   title: "Lottery App",
@@ -18,7 +19,7 @@ export default function RootLayout({
       <body
         className={`${fustat.variable} ${luckiestGuy.variable} font-fustat text-white antialiased`}
       >
-        <section className="flex min-h-screen bg-black">
+        <section className="flex min-h-screen bg-black pb-20 lg:pb-0">
           <SideNav />
 
           <main className="w-full border-x border-BlackCow lg:w-[596px]">
@@ -27,6 +28,7 @@ export default function RootLayout({
 
           <RightSideBar />
         </section>
+        <MobileNav />
       </body>
     </html>
   );
