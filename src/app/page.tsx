@@ -13,9 +13,7 @@ import DrawsRanking from "@/components/DrawsRanking";
 export default function Home({
   searchParams,
 }: {
-  searchParams: {
-    tab: string | undefined;
-  };
+  searchParams: Record<string, string>;
 }) {
   const currentTab = searchParams.tab || "Daily";
 

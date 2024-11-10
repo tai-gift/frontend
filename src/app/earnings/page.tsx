@@ -12,16 +12,14 @@ export const metadata: Metadata = {
 export default function EarningPage({
   searchParams,
 }: {
-  searchParams: {
-    tab: string | undefined;
-  };
+  searchParams: Record<string, string>;
 }) {
   const currentTab = searchParams.tab || "All";
 
   return (
     <section className="space-y-4 px-8 pb-12 pt-8">
       <div className="flex w-full items-center justify-between">
-        <h1 className="font-luckiestGuy text-xl font-normal md:text-2xl uppercase">
+        <h1 className="font-luckiestGuy text-xl font-normal uppercase md:text-2xl">
           EARNINGS
         </h1>
         <button type="button">

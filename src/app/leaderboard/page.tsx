@@ -10,9 +10,7 @@ export const metadata: Metadata = {
 export default function LeaderBoardPage({
   searchParams,
 }: {
-  searchParams: {
-    tab: string | undefined;
-  };
+  searchParams: Record<string, string>;
 }) {
   const currentTab = searchParams.tab || "Daily";
 
