@@ -13,7 +13,7 @@ export default function RightSideBar() {
           </p>
 
           <Link
-            href="/learnmore"
+            href="/about"
             className="text-xs font-medium underline underline-offset-1"
           >
             Learn more

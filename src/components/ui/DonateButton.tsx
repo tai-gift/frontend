@@ -6,7 +6,11 @@ import { useState } from "react";
 import SlotModal from "./modals/SlotModal";
 import SuccessModal from "./modals/SuccessModal";
 
-const DonateButton: React.FC = () => {
+interface DonateButtonProp {
+  className: string;
+}
+
+const DonateButton: React.FC<DonateButtonProp> = ({ className }) => {
   const { user, isWalletConnected } = useDonation();
   const router = useRouter();
   const [showDonate, setShowDonate] = useState(false);
@@ -24,7 +28,7 @@ const DonateButton: React.FC = () => {
 
   return (
     <>
-      <div className="absolute bottom-[160px] left-1/2 z-10 w-[95%] -translate-x-1/2 transform">
+      <div className={`${className}`}>
         <button
           type="button"
           onClick={handleClick}
