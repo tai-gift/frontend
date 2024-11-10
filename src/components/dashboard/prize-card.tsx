@@ -1,3 +1,5 @@
+import { CurrencyIcon } from "../ui";
+
 export default function PrizeCard({
   number,
   price,
@@ -12,7 +14,7 @@ export default function PrizeCard({
           {number}
         </div>
       </div>
-      <p className="text-base font-semibold">₦ {price}</p>
+      <p className="text-base font-semibold flex items-center space-x-2"><CurrencyIcon /> <span>{price}</span></p>
     </div>
   );
 }

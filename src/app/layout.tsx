@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import { fustat, luckiestGuy } from "../../public/fonts";
-import SideNav from "./_components/side-nav";
-import RightSideBar from "./_components/right-side-bar";
+import SideNav from "@/components/side-nav";
+import RightSideBar from "@/components/right-side-bar";
 import "./globals.css";
+import MobileNav from "@/components/MobileNav";
+import { DonationProvider } from "@/contexts/DonationProvider";
 
 export const metadata: Metadata = {
   title: "Lottery App",
@@ -10,24 +12,29 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  searchParams,
 }: Readonly<{
   children: React.ReactNode;
+  searchParams?: Record<string, string>;
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${fustat.variable} ${luckiestGuy.variable} font-fustat text-white antialiased`}
-      >
-        <section className="flex min-h-screen bg-black">
-          <SideNav />
+      <DonationProvider>
+        <body
+          className={`${fustat.variable} ${luckiestGuy.variable} font-fustat text-white antialiased`}
+        >
+          <section className="flex min-h-screen bg-black pb-20 lg:pb-0">
+            <SideNav />
 
-          <main className="w-full border-x border-BlackCow lg:w-[596px]">
-            {children}
-          </main>
+            <main className="w-full border-x border-BlackCow lg:w-[596px]">
+              {children}
+            </main>
 
-          <RightSideBar />
-        </section>
-      </body>
+            <RightSideBar />
+          </section>
+          <MobileNav />
+        </body>
+      </DonationProvider>
     </html>
   );
 }
