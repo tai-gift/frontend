@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
@@ -13,11 +14,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="fixed inset-0 w-full bg-Zeus px-4 py-8 z-[99999]">
-      <h1 className="text-center font-luckiestGuy text-4xl font-normal uppercase md:text-5xl">
+    <main className="fixed inset-0 z-[99999] w-full bg-Zeus px-4 py-8">
+      <Link
+        href="/"
+        className="text-center font-luckiestGuy text-4xl font-normal uppercase md:text-5xl block"
+      >
         LOGO
-      </h1>
-      <section className="w-full max-w-md mx-auto">{children}</section>
+      </Link>
+      <section className="mx-auto w-full max-w-md">{children}</section>
     </main>
   );
 }
