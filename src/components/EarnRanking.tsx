@@ -7,7 +7,7 @@ import SilverTrophy from "/public/svgs/silverTrophy.svg";
 import { useEffect, useState } from "react";
 
 interface EarnRankingProps {
-  currentTab: string;
+  currentTab: string | undefined;
 }
 
 interface EarnerData {

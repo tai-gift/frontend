@@ -12,9 +12,6 @@ export default function LeaderBoardPage({
 }: {
   searchParams: {
     tab: string | undefined;
-    page: string | undefined;
-    search: string | undefined;
-    subTab?: string;
   };
 }) {
   const currentTab = searchParams.tab || "Daily";

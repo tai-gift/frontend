@@ -8,14 +8,15 @@ import SilverTrophy from "/public/svgs/silverTrophy.svg";
 import BronzeTrophy from "/public/svgs/bronze.svg";
 
 interface LeaderBoardRankingProps {
-  currentTab: string;
+  currentTab: string | undefined;
 }
 
 const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = ({
   currentTab,
 }) => {
+  console.log("🚀 ~ currentTab:", currentTab);
   return (
-    <div className="space-y-5 pt-10">
+    <div className="space-y-5 pt-20">
       <div className="grid w-full grid-cols-3 gap-4 align-top">
         <div className="flex flex-col items-center justify-center gap-2">
           <div className="bg-leaderboardbgLinear relative grid h-[70px] w-[70px] place-content-center rounded-full p-1">
@@ -53,7 +54,7 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = ({
             </div>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-2">
+        <div className="flex -translate-y-10 flex-col items-center justify-center gap-2">
           <div className="bg-leaderboardbgLinear relative grid h-[70px] w-[70px] place-content-center rounded-full p-1">
             <Image
               src={FirstImage}
