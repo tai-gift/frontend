@@ -139,7 +139,7 @@ export default function Home({
           <DrawsRanking />
         </div>
       </section>
-      <DonateButton />
+      <DonateButton className="absolute bottom-[160px] left-1/2 z-10 hidden w-[95%] -translate-x-1/2 transform lg:block" />
     </section>
   );
 }
