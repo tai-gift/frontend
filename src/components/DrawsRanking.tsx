@@ -8,7 +8,6 @@ import { CurrencyIcon } from "./ui";
 const DrawsRanking = () => {
   return (
     <div className="space-y-3">
-
       <div className="blaze-gradient neon-bx-shadow flex justify-between rounded-9 border border-NeonPink p-3">
         <div className="flex gap-2.5">
           <Image src={PrizePoolIcon} alt="" />
@@ -49,7 +48,7 @@ const DrawsRanking = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <div className="grid grid-cols-3 gap-3 sm:grid-cols-3">
         <PrizeCard number={2} price="15,000" />
         <PrizeCard number={3} price="10,000" />
         <PrizeCard number={4} price="2,500" />
