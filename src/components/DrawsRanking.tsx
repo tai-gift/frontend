@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
 import PrizePoolIcon from "/public/svgs/prize-pool.svg";
@@ -9,6 +10,15 @@ import { CountdownTimer, CurrencyIcon } from "./ui";
 import Odometer from "./ui/Odometer";
 
 const DrawsRanking = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <div className="space-y-3">
       <div className="blaze-gradient neon-bx-shadow flex justify-between rounded-9 border border-NeonPink p-3">
@@ -20,7 +30,12 @@ const DrawsRanking = () => {
 
             <div className="flex items-center gap-1">
               <p className="translate-y-0.5 font-bold">
-                <Odometer value={10000} fontSize="1rem" duration={1500} />
+                <Odometer
+                  value={10000}
+                  fontSize="1rem"
+                  duration={1500}
+                  loading={loading}
+                />
               </p>
               <div className="flex items-center">
                 <Image src={TaikoIconMono} alt="Taiko icon mono" />
@@ -53,7 +68,12 @@ const DrawsRanking = () => {
             <CurrencyIcon />
           </span>
           <span className="translate-y-0.5">
-            <Odometer value={30000} fontSize="1rem" duration={1500} />
+            <Odometer
+              value={30000}
+              fontSize="1rem"
+              duration={1500}
+              loading={loading}
+            />
           </span>
         </p>
       </div>
