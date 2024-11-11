@@ -5,9 +5,11 @@ import RightSideBar from "@/components/right-side-bar";
 import "./globals.css";
 import MobileNav from "@/components/MobileNav";
 import { DonationProvider } from "@/contexts/DonationProvider";
+import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 
 export const metadata: Metadata = {
-  title: "Lottery App",
+  title: "Tai.gift",
+  description: "Donate to Charities, Win Prizes",
 };
 
 export default function RootLayout({
@@ -19,6 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleTagManager id={"GTM-PRGLKX78"} />
       <DonationProvider>
         <body
           className={`${fustat.variable} ${luckiestGuy.variable} font-fustat text-white antialiased`}
