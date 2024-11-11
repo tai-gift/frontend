@@ -8,6 +8,7 @@ import TaikoLogo from "/public/svgs/taiko-logo.svg";
 import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
 import { tabs } from "@/utils/constant";
 import DrawsRanking from "@/components/DrawsRanking";
+import DonateButton from "@/components/ui/DonateButton";
 
 export default function Home({
   searchParams,
@@ -17,7 +18,7 @@ export default function Home({
   const currentTab = searchParams.tab || "Daily";
 
   return (
-    <section className="relative">
+    <section className="relative pb-10">
       <header className="no-scrollbar flex justify-center gap-4 overflow-x-scroll bg-CharcoalGrey p-2.5 text-sm md:gap-9">
         <div className="flex shrink-0 items-center gap-2">
           <span className="flex size-[29.67px] items-center justify-center rounded-full bg-CaribbeanGreen">
@@ -138,7 +139,9 @@ export default function Home({
           <DrawsRanking />
         </div>
       </section>
-    
+      <div className="fixed bottom-0 left-1/2 z-10 hidden w-full max-w-[596px] -translate-x-[55%] transform pb-6 lg:block">
+        <DonateButton className="mx-auto w-[95%]" />
+      </div>
     </section>
   );
 }
