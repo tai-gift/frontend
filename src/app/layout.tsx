@@ -26,7 +26,7 @@ export default function RootLayout({
         <body
           className={`${fustat.variable} ${luckiestGuy.variable} font-fustat text-white antialiased`}
         >
-          <section className="flex min-h-screen bg-black pb-20 lg:pb-0">
+          <section className="flex min-h-screen bg-black pb-32 lg:pb-10">
             <SideNav />
 
             <main className="w-full border-x border-BlackCow lg:w-[596px]">

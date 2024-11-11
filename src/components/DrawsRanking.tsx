@@ -1,11 +1,24 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
 import PrizePoolIcon from "/public/svgs/prize-pool.svg";
 import FirstPrize from "/public/svgs/first-prize.svg";
 import PrizeCard from "@/components/dashboard/prize-card";
-import { CurrencyIcon } from "./ui";
+import { CountdownTimer, CurrencyIcon } from "./ui";
+import Odometer from "./ui/Odometer";
 
 const DrawsRanking = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+    return () => clearTimeout(timeoutId);
+  }, []);
+
   return (
     <div className="space-y-3">
       <div className="blaze-gradient neon-bx-shadow flex justify-between rounded-9 border border-NeonPink p-3">
@@ -16,7 +29,14 @@ const DrawsRanking = () => {
             <p className="font-semibold">Prize Pool</p>
 
             <div className="flex items-center gap-1">
-              <p className="font-bold">100,000</p>
+              <p className="translate-y-0.5 font-bold">
+                <Odometer
+                  value={10000}
+                  fontSize="1rem"
+                  duration={1500}
+                  loading={loading}
+                />
+              </p>
               <div className="flex items-center">
                 <Image src={TaikoIconMono} alt="Taiko icon mono" />
                 <span className="text-xs">taiko</span>
@@ -25,16 +45,16 @@ const DrawsRanking = () => {
           </div>
         </div>
 
-        <div className="space-y-1.5">
-          <p className="text-sm font-semibold">Next Draw starts in</p>
-          <div className="ml-auto flex justify-end gap-1">
-            <span className="rounded-sm bg-FuscousGrey-200 p-1">04</span>
-            <span className="text-base">:</span>
-            <span className="rounded-sm bg-FuscousGrey-200 p-1">45</span>
-            <span className="text-base">:</span>
-            <span className="rounded-sm bg-FuscousGrey-200 p-1">22</span>
-          </div>
-        </div>
+        <CountdownTimer
+          title="Next Draw starts in"
+          hours={4}
+          minutes={45}
+          seconds={22}
+          fontSize="1rem"
+          color="white"
+          digitClassName="rounded-sm bg-FuscousGrey-200 p-1"
+          onComplete={() => console.log("Timer completed!")}
+        />
       </div>
 
       <div className="dark-gradient-1 flex items-center justify-between rounded-9 px-3 py-3.5 font-semibold">
@@ -43,8 +63,18 @@ const DrawsRanking = () => {
           <span className="text-base">First prize</span>
         </div>
 
-        <p className="flex items-center space-x-2 text-lg">
-          <CurrencyIcon /> 30,000
+        <p className="flex items-center gap-1.5 text-base font-semibold">
+          <span className="shrink-0">
+            <CurrencyIcon />
+          </span>
+          <span className="translate-y-0.5">
+            <Odometer
+              value={30000}
+              fontSize="1rem"
+              duration={1500}
+              loading={loading}
+            />
+          </span>
         </p>
       </div>
 
