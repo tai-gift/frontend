@@ -6,7 +6,6 @@ import Colours from "/public/svgs/colours.svg";
 import UserIcon from "/public/svgs/yellow-user-icon.svg";
 import TaikoLogo from "/public/svgs/taiko-logo.svg";
 import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
-import DonateButton from "@/components/ui/DonateButton";
 import { tabs } from "@/utils/constant";
 import DrawsRanking from "@/components/DrawsRanking";
 
@@ -139,7 +138,7 @@ export default function Home({
           <DrawsRanking />
         </div>
       </section>
-      <DonateButton className="absolute bottom-[160px] left-1/2 z-10 hidden w-[95%] -translate-x-1/2 transform lg:block" />
+    
     </section>
   );
 }
