@@ -26,8 +26,15 @@ model Account {
   @@map("accounts")
 }
 
+enum DrawType {
+  DAILY
+  WEEKLY
+  MONTHLY
+}
+
 model Draw {
   id                String   @id @default(cuid())
+  type              DrawType @default(WEEKLY)
   guaranteedPrize   BigInt
   ticketPrice       BigInt
   startTime         BigInt
@@ -43,8 +50,9 @@ model Draw {
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
   winners           Winner[]
-  Slot              Slot[]
+  slots             Slot[]
 
+  @@index([type])
   @@map("draws")
 }
 
