@@ -14,7 +14,7 @@ export default function UsernamePage() {
   }, [account, chain]);
   const [username, setUsername] = useState("");
   const [processing, setProcessing] = useState(false);
-  const [showDonate, setShowDonate] = useState(false);
+  const [showDonate, setShowDonate] = useState(true);
   const [showSuccess, setShowSuccess] = useState(false);
 
   return (
