@@ -2,53 +2,36 @@
 
 import { useAppAccount } from "@/contexts/AccountProvider";
 import { useRouter } from "next/navigation";
-import React, { useState } from "react";
-import SlotModal from "./modals/SlotModal";
-import SuccessModal from "./modals/SuccessModal";
 
 interface DonateButtonProp {
   className: string;
+  paramTab: string;
 }
 
-const DonateButton: React.FC<DonateButtonProp> = ({ className }) => {
-  const { user, isWalletConnected } = useAppAccount();
+const DonateButton: React.FC<DonateButtonProp> = ({ className, paramTab }) => {
+  const { account, connected } = useAppAccount();
   const router = useRouter();
-  const [showDonate, setShowDonate] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleClick = () => {
-    if (!isWalletConnected) {
+    if (!connected) {
       router.push("/connectwallet");
-    } else if (!user) {
+    } else if (!account) {
       router.push("/connectwallet/username");
     } else {
-      setShowDonate(true);
+      router.push(`/slot?tab=${paramTab}`);
     }
   };
 
   return (
-    <>
-      <div className={`${className}`}>
-        <button
-          type="button"
-          onClick={handleClick}
-          className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300"
-        >
-          Donate
-        </button>
-      </div>
-      <SlotModal
-        isOpen={showDonate}
-        onClose={() => {
-          setShowDonate(false);
-          setShowSuccess(true);
-        }}
-      />
-      <SuccessModal
-        isOpen={showSuccess}
-        onClose={() => setShowSuccess(false)}
-      />
-    </>
+    <div className={`${className}`}>
+      <button
+        type="button"
+        onClick={handleClick}
+        className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300"
+      >
+        Donate
+      </button>
+    </div>
   );
 };
 

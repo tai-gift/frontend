@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  searchParams
 }: Readonly<{
   children: React.ReactNode;
   searchParams?: Record<string, string>;
@@ -41,7 +42,7 @@ export default async function RootLayout({
 
                 <RightSideBar />
               </section>
-              <MobileNav />
+              <MobileNav searchParams={searchParams} />
             </AccountProvider>
           </AppRainbowKitProvider>
         </AppApolloProvider>

@@ -140,7 +140,7 @@ export default async function Home({
         </div>
       </section>
       <div className="fixed bottom-0 left-1/2 z-10 hidden w-full max-w-[596px] -translate-x-[55%] transform pb-6 lg:block">
-        <DonateButton className="mx-auto w-[95%]" />
+        <DonateButton className="mx-auto w-[95%]" paramTab={currentTab} />
       </div>
     </section>
   );

@@ -3,9 +3,8 @@
 import { FormEvent, useEffect, useState } from "react";
 import { useAppAccount } from "@/contexts/AccountProvider";
 import Link from "next/link";
-import SlotModal from "@/components/ui/modals/SlotModal";
-import SuccessModal from "@/components/ui/modals/SuccessModal";
 import { createAccount } from "@/actions/user";
+import { useRouter } from "next/navigation";
 
 export default function UsernamePage() {
   const { account, chain } = useAppAccount();
@@ -14,8 +13,7 @@ export default function UsernamePage() {
   }, [account, chain]);
   const [username, setUsername] = useState("");
   const [processing, setProcessing] = useState(false);
-  const [showDonate, setShowDonate] = useState(false);
-  const [showSuccess, setShowSuccess] = useState(false);
+  const router = useRouter();
 
   return (
     <div className="grid h-[70vh] w-full place-content-center overflow-hidden">
@@ -31,7 +29,7 @@ export default function UsernamePage() {
               username,
               address: account?.address as string,
             });
-            setShowDonate(true);
+            router.push("/slot?tab='DAILY'");
           } catch (e) {
             console.error(e);
           } finally {
@@ -62,17 +60,6 @@ export default function UsernamePage() {
           </Link>
         </div>
       </form>
-      <SlotModal
-        isOpen={showDonate}
-        onClose={() => {
-          setShowDonate(false);
-          setShowSuccess(true);
-        }}
-      />
-      <SuccessModal
-        isOpen={showSuccess}
-        onClose={() => setShowSuccess(false)}
-      />
     </div>
   );
 }

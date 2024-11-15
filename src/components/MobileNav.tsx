@@ -5,12 +5,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import DonateButton from "./ui/DonateButton";
 
-const MobileNav = () => {
+interface MobileNavProps {
+  searchParams: Record<string, string> | undefined;
+}
+
+const MobileNav: React.FC<MobileNavProps> = ({ searchParams }) => {
+  console.log("🚀 ~ MobileNav ~ searchParams:", searchParams);
   const pathname = usePathname();
+  const currentTab = (searchParams && searchParams.tab) || "Daily";
 
   return (
     <nav className="fixed bottom-2 left-1/2 z-10 flex w-[98%] -translate-x-1/2 transform flex-col items-start justify-start space-y-3 pb-3 backdrop-blur-20 lg:hidden">
-      <DonateButton className="w-full" />
+      <DonateButton className="w-full" paramTab={currentTab} />
       <div className="flex min-h-14 w-full items-center justify-around rounded-full bg-FuscousGrey-100/60 py-3">
         {navLinks.map((link, index) => (
           <Link
