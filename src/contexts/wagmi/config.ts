@@ -36,7 +36,7 @@ export const testnet = {
   name: "Taiko (Hekla)",
   iconUrl: "/svgs/taiko-icon-mono.svg",
   iconBackground: "#e01b98",
-  factoryAddress: "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  factoryAddress: "0x6b4cAc0DcbdBf8518E4B632f698cF6915472917c",
   nativeCurrency: { name: "ETH", symbol: "ETH", decimals: 18 },
   rpcUrls: {
     default: { http: ["https://rpc.hekla.taiko.xyz"] },
