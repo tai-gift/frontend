@@ -78,7 +78,7 @@ const DrawsRanking = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+      <div className="grid grid-cols-3 gap-3 sm:grid-cols-3">
         <PrizeCard number={2} price="15,000" />
         <PrizeCard number={3} price="10,000" />
         <PrizeCard number={4} price="2,500" />

@@ -9,11 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@auth/prisma-adapter": "^2.7.3",
+    "@apollo/client": "^3.11.10",
     "@prisma/client": "^5.22.0",
+    "@rainbow-me/rainbowkit": "^2.2.0",
+    "@tanstack/react-query": "^5.60.2",
+    "encoding": "^0.1.13",
+    "graphql": "^16.9.0",
     "next": "15.0.3",
+    "pino-pretty": "^13.0.0",
     "react": "19.0.0-rc-66855b96-20241106",
-    "react-dom": "19.0.0-rc-66855b96-20241106"
+    "react-dom": "19.0.0-rc-66855b96-20241106",
+    "wagmi": "^2.12.32"
   },
   "devDependencies": {
     "@types/node": "^20",

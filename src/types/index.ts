@@ -1,14 +1,16 @@
-export interface User {
+import { Chain } from "@rainbow-me/rainbowkit";
+
+export interface AppAccount {
   id?: string;
-  username: string;
   address: string;
+  username?: string;
 }
 
 export interface DonationContextType {
-  user: User | null;
-  isWalletConnected: boolean;
-  connectWallet: () => Promise<void>;
-  disconnectWallet: () => void;
-  createAccount: (username: string) => Promise<void>;
-  donate: (amount: number) => Promise<void>;
+  account: AppAccount | null;
+  chain: Chain & { unsupported?: true };
+  connected: boolean;
+  openConnectModal?: () => void;
+  openAccountModal?: () => void;
+  openChainModal?: () => void;
 }

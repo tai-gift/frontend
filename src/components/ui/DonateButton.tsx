@@ -1,8 +1,8 @@
 "use client";
 
-import { useDonation } from "@/contexts/DonationProvider";
+import { useAppAccount } from "@/contexts/AccountProvider";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import React, { useState } from "react";
 import SlotModal from "./modals/SlotModal";
 import SuccessModal from "./modals/SuccessModal";
 
@@ -11,7 +11,7 @@ interface DonateButtonProp {
 }
 
 const DonateButton: React.FC<DonateButtonProp> = ({ className }) => {
-  const { user, isWalletConnected } = useDonation();
+  const { user, isWalletConnected } = useAppAccount();
   const router = useRouter();
   const [showDonate, setShowDonate] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
