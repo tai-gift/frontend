@@ -19,7 +19,63 @@ model Account {
   username  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  Winner    Winner[]
+  Slot      Slot[]
 
   @@index([address])
   @@map("accounts")
+}
+
+model Draw {
+  id                String   @id @default(cuid())
+  guaranteedPrize   BigInt
+  ticketPrice       BigInt
+  startTime         BigInt
+  endTime           BigInt
+  charityWallet     String
+  managementWallet  String
+  minTickets        BigInt
+  maxTicketsPerUser BigInt
+  currentPrizePool  BigInt
+  totalTickets      BigInt
+  isActive          Boolean  @default(true)
+  isComplete        Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  winners           Winner[]
+  Slot              Slot[]
+
+  @@map("draws")
+}
+
+model Slot {
+  id          String   @id @default(cuid())
+  units       BigInt
+  price       BigInt
+  draw        Draw     @relation(fields: [drawId], references: [id])
+  drawId      String
+  owner       Account  @relation(fields: [ownerId], references: [id])
+  ownerId     String
+  txHash      String? // Transaction hash from blockchain
+  purchasedAt DateTime @default(now())
+
+  @@unique([txHash])
+  @@index([drawId])
+  @@index([ownerId])
+  @@map("slots")
+}
+
+model Winner {
+  id        String  @id @default(cuid())
+  position  Int
+  prize     BigInt
+  draw      Draw    @relation(fields: [drawId], references: [id])
+  drawId    String
+  account   Account @relation(fields: [accountId], references: [id])
+  accountId String
+
+  @@unique([drawId, position])
+  @@index([drawId])
+  @@index([accountId])
+  @@map("winners")
 }
