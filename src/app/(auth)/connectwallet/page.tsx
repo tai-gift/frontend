@@ -1,10 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { formatAddress } from "@/helpers/string";
+import { useAppAccount } from "@/contexts/AccountProvider";
+import { useEffect } from "react";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function ConnectWallet() {
-  const router = useRouter();
+  const { account } = useAppAccount();
+
+  useEffect(() => {
+    console.log("Account", account);
+  }, [account]);
 
   return (
     <div className="grid h-[70vh] w-full place-content-center overflow-hidden">
@@ -17,13 +25,63 @@ export default function ConnectWallet() {
             Connect your wallet to start earning
           </p>
         </div>
-        <button
-          type="button"
-          onClick={() => router.push("/connectwallet/username")}
-          className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
-        >
-          Connect Wallet
-        </button>
+        <ConnectButton.Custom>
+          {({
+            account,
+            chain,
+            openAccountModal,
+            openChainModal,
+            openConnectModal,
+            authenticationStatus,
+            mounted,
+          }) => {
+            const ready = mounted && authenticationStatus !== "loading";
+            const connected =
+              ready &&
+              account &&
+              chain &&
+              (!authenticationStatus ||
+                authenticationStatus === "authenticated");
+            if (!connected) {
+              return (
+                <button
+                  type="button"
+                  onClick={openConnectModal}
+                  className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
+                >
+                  Connect Wallet
+                </button>
+              );
+            } else if (chain.unsupported) {
+              return (
+                <button
+                  type="button"
+                  onClick={openChainModal}
+                  className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
+                >
+                  Switch Network
+                </button>
+              );
+            } else {
+              return (
+                <button
+                  onClick={openAccountModal}
+                  className={"flex items-center gap-2"}
+                >
+                  {!chain?.unsupported && chain.iconUrl && (
+                    <Image
+                      alt={chain.name ?? "Chain icon"}
+                      src={chain.iconUrl as string}
+                      width={26}
+                      height={26}
+                    />
+                  )}
+                  {formatAddress(account?.address as string)}
+                </button>
+              );
+            }
+          }}
+        </ConnectButton.Custom>
         <Link href="/" className="text-sm font-bold text-white underline">
           Terms and Condition
         </Link>

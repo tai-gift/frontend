@@ -10,12 +10,12 @@ import { tabs } from "@/utils/constant";
 import DrawsRanking from "@/components/DrawsRanking";
 import DonateButton from "@/components/ui/DonateButton";
 
-export default function Home({
+export default async function Home({
   searchParams,
 }: {
-  searchParams: Record<string, string>;
+  searchParams: Promise<Record<string, string>>;
 }) {
-  const currentTab = searchParams.tab || "Daily";
+  const currentTab = (await searchParams).tab || "Daily";
 
   return (
     <section className="relative pb-10">
