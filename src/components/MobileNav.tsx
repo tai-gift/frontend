@@ -10,9 +10,8 @@ interface MobileNavProps {
 }
 
 const MobileNav: React.FC<MobileNavProps> = ({ searchParams }) => {
-  console.log("🚀 ~ MobileNav ~ searchParams:", searchParams);
   const pathname = usePathname();
-  const currentTab = (searchParams && searchParams.tab) || "Daily";
+  const currentTab = (searchParams && searchParams.tab) || "DAILY";
 
   return (
     <nav className="fixed bottom-2 left-1/2 z-10 flex w-[98%] -translate-x-1/2 transform flex-col items-start justify-start space-y-3 pb-3 backdrop-blur-20 lg:hidden">

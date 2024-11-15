@@ -31,7 +31,7 @@ export default function EarningPage({
           <Link
             key={index}
             href={`earnings?tab=${tab}`}
-            className={`rounded-lg p-2 text-center ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
+            className={`rounded-lg p-2 text-center capitalize ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
           >
             {tab}
           </Link>

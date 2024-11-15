@@ -12,7 +12,7 @@ export default function LeaderBoardPage({
 }: {
   searchParams: Record<string, string>;
 }) {
-  const currentTab = searchParams.tab || "Daily";
+  const currentTab = searchParams.tab || "DAILY";
 
   return (
     <section className="relative space-y-4 px-8 pb-12 pt-8">
@@ -27,7 +27,7 @@ export default function LeaderBoardPage({
           <Link
             key={index}
             href={`leaderboard?tab=${tab}`}
-            className={`rounded-lg p-2 text-center ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
+            className={`rounded-lg p-2 text-center capitalize ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
           >
             {tab}
           </Link>

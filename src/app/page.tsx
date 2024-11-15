@@ -9,13 +9,18 @@ import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
 import { tabs } from "@/utils/constant";
 import DrawsRanking from "@/components/DrawsRanking";
 import DonateButton from "@/components/ui/DonateButton";
+import { DrawType, getActiveDraws } from "@/actions/draw";
 
 export default async function Home({
   searchParams,
 }: {
   searchParams: Promise<Record<string, string>>;
 }) {
-  const currentTab = (await searchParams).tab || "Daily";
+  const currentTab = (await searchParams).tab || "DAILY";
+  const drawType = currentTab.toUpperCase() as DrawType;
+
+  const draws = await getActiveDraws(drawType);
+  console.log("🚀 ~ draws:", draws)
 
   return (
     <section className="relative pb-10">
@@ -129,7 +134,7 @@ export default async function Home({
               <Link
                 key={index}
                 href={`?tab=${tab}`}
-                className={`rounded-lg p-2 text-center ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
+                className={`rounded-lg p-2 text-center lowercase ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
               >
                 {tab}
               </Link>

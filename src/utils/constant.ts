@@ -32,4 +32,4 @@ export const navLinks = [
   },
 ];
 
-export const tabs = ["All", "Daily", "Weekly", "Monthly"];
+export const tabs = ["All", "DAILY", "WEEKLY", "MONTHLY"];

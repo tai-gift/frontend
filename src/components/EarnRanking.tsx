@@ -58,11 +58,11 @@ const EarnRanking: React.FC<EarnRankingProps> = ({ currentTab }) => {
 
   const filteredEarners = earnersData.filter((earner) => {
     if (currentTab === "All") return true;
-    if (currentTab === "Daily" && earner.drawType === "First draw") return true;
-    if (currentTab === "Weekly" && earner.drawType === "Second draw")
+    if (currentTab === "DAILY" && earner.drawType === "First draw") return true;
+    if (currentTab === "WEEKLY" && earner.drawType === "Second draw")
       return true;
     if (
-      currentTab === "Monthly" &&
+      currentTab === "MONTHLY" &&
       earner.drawType !== "First draw" &&
       earner.drawType !== "Second draw"
     )
