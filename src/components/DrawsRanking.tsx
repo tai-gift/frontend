@@ -13,9 +13,10 @@ import { calculateTimeRemaining } from "@/utils/date";
 
 interface DrawsRankingProps {
   draws: Draw[];
+  currentTab: string;
 }
 
-const DrawsRanking: React.FC<DrawsRankingProps> = ({ draws }) => {
+const DrawsRanking: React.FC<DrawsRankingProps> = ({ draws, currentTab }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,7 +38,9 @@ const DrawsRanking: React.FC<DrawsRankingProps> = ({ draws }) => {
 
     return (
       <div key={draw.id} className="space-y-3">
-        <div className="blaze-gradient neon-bx-shadow flex justify-between rounded-9 border border-NeonPink p-3">
+        <div
+          className={`neon-bx-shadow flex justify-between rounded-9 border border-NeonPink p-3 ${currentTab === "DAILY" ? "bg-dailyLinearBg" : currentTab === "WEEKLY" ? "bg-weeklyLinearBg" : "bg-monthlyLinearBg"}`}
+        >
           <div className="flex gap-2.5">
             <Image src={PrizePoolIcon} alt="" />
 

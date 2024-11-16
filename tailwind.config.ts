@@ -44,8 +44,15 @@ export default {
       tablebgLinear:
         "linear-gradient(278.27deg, #43423B -60.13%, #2E2D2A 78.23%)",
       countbgLinear: "linear-gradient(180deg, #C83EB8 0%, #8808C3 100%)",
-      blackbgLinear: "linear-gradient(278.27deg, #43423B -60.13%, #2E2D2A 78.23%)",
+      blackbgLinear:
+        "linear-gradient(278.27deg, #43423B -60.13%, #2E2D2A 78.23%)",
       leaderboardbgLinear: "linear-gradient(180deg, #FFCE00 0%, #F28212 100%)",
+      dailyLinearBg:
+        "linear-gradient(95.64deg, #FF6600 -19.54%, #FFD700 122.21%)",
+      weeklyLinearBg:
+        "linear-gradient(95.64deg, #CE0BB7 -19.54%, #FFD700 122.21%)",
+      monthlyLinearBg:
+        "linear-gradient(95.64deg, #F91EDF -19.54%, #8808C3 82.9%)",
     },
     backdropBlur: {
       20: "20px",

@@ -20,7 +20,6 @@ export default async function Home({
 
   const draws = await getActiveDraws();
   const filteredDraws = draws.filter(draw => draw.type === currentTab);
-  console.log("🚀 ~ filteredDraws:", filteredDraws)
 
   return (
     <section className="relative pb-10">
@@ -141,7 +140,7 @@ export default async function Home({
             ))}
           </div>
 
-          <DrawsRanking draws={filteredDraws} />
+          <DrawsRanking draws={filteredDraws} currentTab={currentTab} />
         </div>
       </section>
       <div className="fixed bottom-0 left-1/2 z-10 hidden w-full max-w-[596px] -translate-x-[55%] transform pb-6 lg:block">
