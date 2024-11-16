@@ -6,7 +6,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
-import { DonationContextType, AppAccount } from "@/types";
+import { AccountContextType, AppAccount } from "@/types";
 import { useAccount, useChains, useSwitchChain } from "wagmi";
 import {
   useAccountModal,
@@ -16,9 +16,7 @@ import {
 import { useRouter } from "next/navigation";
 import { findAccount } from "@/actions/user";
 
-const AccountContext = createContext<DonationContextType | undefined>(
-  undefined,
-);
+const AccountContext = createContext<AccountContextType | undefined>(undefined);
 
 export const AccountProvider: React.FC<{ children: React.ReactNode }> = ({
   children,

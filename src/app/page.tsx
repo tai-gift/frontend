@@ -9,7 +9,9 @@ import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
 import { tabs } from "@/utils/constant";
 import DrawsRanking from "@/components/DrawsRanking";
 import DonateButton from "@/components/ui/DonateButton";
-import { getActiveDraws } from "@/actions/draw";
+import { getActiveDrawsByType } from "@/actions/draw";
+import { DrawType } from "@prisma/client";
+import { serializeRaffle } from "@/utils/draw";
 
 export default async function Home({
   searchParams,
@@ -17,9 +19,9 @@ export default async function Home({
   searchParams: Promise<Record<string, string>>;
 }) {
   const currentTab = (await searchParams).tab || "DAILY";
-
-  const draws = await getActiveDraws();
-  const filteredDraws = draws.filter(draw => draw.type === currentTab);
+  const draw = serializeRaffle(
+    await getActiveDrawsByType(DrawType[currentTab]),
+  );
 
   return (
     <section className="relative pb-10">
@@ -140,11 +142,15 @@ export default async function Home({
             ))}
           </div>
 
-          <DrawsRanking draws={filteredDraws} currentTab={currentTab} />
+          <DrawsRanking key={draw.id} draw={draw} currentTab={currentTab} />
         </div>
       </section>
       <div className="fixed bottom-0 left-1/2 z-10 hidden w-full max-w-[596px] -translate-x-[55%] transform pb-6 lg:block">
-        <DonateButton className="mx-auto w-[95%]" paramTab={currentTab} />
+        <DonateButton
+          className="mx-auto w-[95%]"
+          paramTab={currentTab}
+          draw={draw}
+        />
       </div>
     </section>
   );

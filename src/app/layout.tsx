@@ -10,6 +10,7 @@ import { AppApolloProvider } from "@/contexts/AppApolloProvider";
 import { AppRainbowKitProvider } from "@/contexts/wagmi";
 import { headers } from "next/headers";
 import React from "react";
+import { DrawProvider } from "@/contexts/DrawProvider";
 
 export const metadata: Metadata = {
   title: "Tai.gift",
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  searchParams
+  searchParams,
 }: Readonly<{
   children: React.ReactNode;
   searchParams?: Record<string, string>;
@@ -33,16 +34,18 @@ export default async function RootLayout({
         <AppApolloProvider>
           <AppRainbowKitProvider cookie={(await headers()).get("cookie")}>
             <AccountProvider>
-              <section className="flex min-h-screen bg-black pb-32 lg:pb-10">
-                <SideNav />
+              <DrawProvider>
+                <section className="flex min-h-screen bg-black pb-32 lg:pb-10">
+                  <SideNav />
 
-                <main className="w-full border-x border-BlackCow lg:w-[596px]">
-                  {children}
-                </main>
+                  <main className="w-full border-x border-BlackCow lg:w-[596px]">
+                    {children}
+                  </main>
 
-                <RightSideBar />
-              </section>
-              <MobileNav searchParams={searchParams} />
+                  <RightSideBar />
+                </section>
+                <MobileNav searchParams={searchParams} />
+              </DrawProvider>
             </AccountProvider>
           </AppRainbowKitProvider>
         </AppApolloProvider>

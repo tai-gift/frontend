@@ -6,9 +6,13 @@ export interface AppAccount {
   username?: string;
 }
 
-export interface DonationContextType {
+export interface AccountContextType {
   account: AppAccount | null;
-  chain: Chain & { unsupported?: true };
+  chain: Chain & {
+    unsupported?: true;
+    tokenAddress: string;
+    factoryAddress: string;
+  };
   connected: boolean;
   openConnectModal?: () => void;
   openAccountModal?: () => void;
@@ -28,10 +32,9 @@ export interface Draw {
   address: string;
   charityWallet: string;
   managementWallet: string;
-  guaranteedPrize: bigint;
-  ticketPrice: bigint;
-  currentPrizePool: bigint;
-  totalTickets: bigint;
+  guaranteedPrize: number;
+  ticketPrice: number;
+  currentPrizePool: number;
   minTickets: bigint;
   maxTicketsPerUser: bigint;
   startTime: bigint;

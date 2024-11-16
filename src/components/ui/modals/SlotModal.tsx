@@ -1,33 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import React, { useMemo, useState } from "react";
 import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
-import { useSearchParams } from "next/navigation";
+import { Address, formatEther } from "viem";
+import { useDraw } from "@/contexts/DrawProvider";
+import { useRaffle } from "@/hooks/dapp";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-type TabType = "DAILY" | "WEEKLY" | "MONTHLY";
-
 const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  const { selectedDraw } = useDraw();
+  const { buyTicket } = useRaffle(selectedDraw?.address as Address);
+
   const [amount, setAmount] = useState("1");
+  const [processing, setProcessing] = useState<boolean>();
   const [viewDetail, setViewDetail] = useState<string>();
 
-  const isValidTab = (tab: string | null): tab is TabType => {
-    return tab === "DAILY" || tab === "WEEKLY" || tab === "MONTHLY";
-  };
-
-  const useTabFromUrl = () => {
-    const searchParams = useSearchParams();
-    const tabParam = searchParams.get("tab");
-
-    return isValidTab(tabParam) ? tabParam : "DAILY";
-  };
-
-  const currentTab = useTabFromUrl();
+  const toDonate = useMemo(() => {
+    const price = selectedDraw?.ticketPrice ?? 0;
+    return price ? parseInt(amount) * price : 0;
+  }, [amount, selectedDraw?.ticketPrice]);
 
   const handleDecrease = () => {
     setAmount((prev) => {
@@ -42,6 +38,21 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
       return newAmount.toString();
     });
   };
+
+  async function handleDonate() {
+    if (processing) return;
+
+    setProcessing(true);
+    try {
+      const tx = await buyTicket(parseInt(amount), toDonate);
+      console.log("tx", tx);
+      onClose();
+    } catch (e) {
+      console.log(e);
+    } finally {
+      setProcessing(false);
+    }
+  }
 
   if (!isOpen) return null;
 
@@ -61,7 +72,7 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <div className="flex items-center justify-between border-b border-[#5C5C5C] py-3">
               <span className="text-xs font-normal text-white">Draw type</span>
               <span className="text-xs font-normal text-white">
-                {currentTab}
+                {selectedDraw?.type}
               </span>
             </div>
             <div className="flex items-center justify-between border-b border-[#5C5C5C] py-3">
@@ -72,22 +83,25 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             </div>
             <div className="flex items-center justify-between border-b border-[#5C5C5C] py-3">
               <span className="text-xs font-normal text-white">You pay</span>
-              <p className="flex items-center gap-2 text-xs font-normal">
+              <div className="flex items-center gap-2 text-xs font-normal">
                 <span>You pay</span>
-                <span className="text-lg font-bold">{amount}</span>
+                <span className="text-lg font-bold">
+                  {formatEther(BigInt(toDonate))}
+                </span>
                 <div className="flex items-center gap-2">
                   <Image src={TaikoIconMono} alt="Taiko icon mono" />
-                  <span className="text-xs">taiko raised</span>
+                  <span className="text-xs">taiko</span>
                 </div>
-              </p>
+              </div>
             </div>
           </div>
           <button
             type="button"
-            onClick={onClose}
-            className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
+            onClick={handleDonate}
+            disabled={processing}
+            className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90 disabled:bg-opacity-60"
           >
-            Buy slot
+            {processing ? "Processing..." : "Confirm"}
           </button>
         </div>
       ) : (
@@ -137,14 +151,16 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
               </svg>
             </button>
           </div>
-          <p className="flex items-center gap-2 text-xs font-normal">
+          <div className="flex items-center gap-2 text-xs font-normal">
             <span>You pay</span>
-            <span className="text-lg font-bold">{amount}</span>
+            <span className="text-lg font-bold">
+              {formatEther(BigInt(toDonate))}
+            </span>
             <div className="flex items-center gap-2">
               <Image src={TaikoIconMono} alt="Taiko icon mono" />
-              <span className="text-xs">taiko raised</span>
+              <span className="text-xs">taiko</span>
             </div>
-          </p>
+          </div>
           <button
             type="button"
             onClick={() => {
@@ -152,7 +168,7 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             }}
             className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
           >
-            Buy slot
+            Donate Now
           </button>
         </div>
       )}

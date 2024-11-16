@@ -19,8 +19,8 @@ model Account {
   username  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  Winner    Winner[]
-  Slot      Slot[]
+  Prizes    Prizes[]
+  Tickers   Ticket[]
 
   @@index([address])
   @@map("accounts")
@@ -36,31 +36,31 @@ model Draw {
   id                String   @id @default(cuid())
   type              DrawType @default(WEEKLY)
   address           String   @default("0x")
-  guaranteedPrize   BigInt
-  ticketPrice       BigInt
+  onChainId         Int
+  guaranteedPrize   Decimal  @db.Decimal(78, 0)
+  ticketPrice       Decimal  @db.Decimal(78, 0)
   startTime         BigInt
   endTime           BigInt
   charityWallet     String
   managementWallet  String
   minTickets        BigInt
   maxTicketsPerUser BigInt
-  currentPrizePool  BigInt
-  totalTickets      BigInt
+  currentPrizePool  Decimal  @db.Decimal(78, 0)
   isActive          Boolean  @default(true)
   isComplete        Boolean  @default(false)
   createdAt         DateTime @default(now())
   updatedAt         DateTime @updatedAt
-  winners           Winner[]
-  slots             Slot[]
+  prizes            Prizes[]
+  slots             Ticket[]
 
   @@index([type])
   @@map("draws")
 }
 
-model Slot {
+model Ticket {
   id          String   @id @default(cuid())
-  units       BigInt
-  price       BigInt
+  slots       BigInt
+  price       Decimal  @db.Decimal(78, 0)
   draw        Draw     @relation(fields: [drawId], references: [id])
   drawId      String
   owner       Account  @relation(fields: [ownerId], references: [id])
@@ -71,13 +71,13 @@ model Slot {
   @@unique([txHash])
   @@index([drawId])
   @@index([ownerId])
-  @@map("slots")
+  @@map("tickets")
 }
 
-model Winner {
+model Prizes {
   id        String  @id @default(cuid())
   position  Int
-  prize     BigInt
+  prize     Decimal @db.Decimal(78, 0)
   draw      Draw    @relation(fields: [drawId], references: [id])
   drawId    String
   account   Account @relation(fields: [accountId], references: [id])
