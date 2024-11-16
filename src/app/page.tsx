@@ -9,7 +9,7 @@ import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
 import { tabs } from "@/utils/constant";
 import DrawsRanking from "@/components/DrawsRanking";
 import DonateButton from "@/components/ui/DonateButton";
-import { DrawType, getActiveDraws } from "@/actions/draw";
+import { getActiveDraws } from "@/actions/draw";
 
 export default async function Home({
   searchParams,
@@ -17,10 +17,10 @@ export default async function Home({
   searchParams: Promise<Record<string, string>>;
 }) {
   const currentTab = (await searchParams).tab || "DAILY";
-  const drawType = currentTab.toUpperCase() as DrawType;
 
-  const draws = await getActiveDraws(drawType);
-  console.log("🚀 ~ draws:", draws)
+  const draws = await getActiveDraws();
+  const filteredDraws = draws.filter(draw => draw.type === currentTab);
+  console.log("🚀 ~ filteredDraws:", filteredDraws)
 
   return (
     <section className="relative pb-10">
@@ -134,14 +134,14 @@ export default async function Home({
               <Link
                 key={index}
                 href={`?tab=${tab}`}
-                className={`rounded-lg p-2 text-center lowercase ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
+                className={`rounded-lg p-2 text-center ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
               >
                 {tab}
               </Link>
             ))}
           </div>
 
-          <DrawsRanking />
+          <DrawsRanking draws={filteredDraws} />
         </div>
       </section>
       <div className="fixed bottom-0 left-1/2 z-10 hidden w-full max-w-[596px] -translate-x-[55%] transform pb-6 lg:block">

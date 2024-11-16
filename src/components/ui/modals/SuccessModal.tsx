@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface ModalProps {
   isOpen: boolean;
@@ -6,13 +9,11 @@ interface ModalProps {
 }
 
 const SuccessModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
+  const router = useRouter();
   if (!isOpen) return null;
 
   return (
-    <div
-      className="fixed inset-0 grid h-screen place-content-center overflow-hidden bg-[#252422] p-4 transition-opacity"
-      onClick={onClose}
-    >
+    <div className="fixed inset-0 z-[99999] grid h-screen place-content-center overflow-hidden bg-[#252422] p-4 transition-opacity">
       <div className="flex min-h-[315px] flex-col items-center justify-center gap-4 rounded-lg bg-Liver/80 p-4 md:w-[415px]">
         <svg
           width="74"
@@ -44,6 +45,10 @@ const SuccessModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
         </div>
         <button
           type="button"
+          onClick={() => {
+            router.back();
+            onClose();
+          }}
           className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
         >
           Buy more

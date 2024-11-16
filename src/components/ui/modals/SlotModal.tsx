@@ -3,15 +3,46 @@
 import Image from "next/image";
 import { useState } from "react";
 import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
+import { useSearchParams } from "next/navigation";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
+type TabType = "DAILY" | "WEEKLY" | "MONTHLY";
+
 const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   const [amount, setAmount] = useState("1");
   const [viewDetail, setViewDetail] = useState<string>();
+
+  const isValidTab = (tab: string | null): tab is TabType => {
+    return tab === "DAILY" || tab === "WEEKLY" || tab === "MONTHLY";
+  };
+
+  const useTabFromUrl = () => {
+    const searchParams = useSearchParams();
+    const tabParam = searchParams.get("tab");
+
+    return isValidTab(tabParam) ? tabParam : "DAILY";
+  };
+
+  const currentTab = useTabFromUrl();
+
+  const handleDecrease = () => {
+    setAmount((prev) => {
+      const newAmount = Math.max(1, parseInt(prev) - 1);
+      return newAmount.toString();
+    });
+  };
+
+  const handleIncrease = () => {
+    setAmount((prev) => {
+      const newAmount = Math.min(100, parseInt(prev) + 1);
+      return newAmount.toString();
+    });
+  };
+
   if (!isOpen) return null;
 
   return (
@@ -29,7 +60,9 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
           <div className="w-full border border-[#636363] p-4">
             <div className="flex items-center justify-between border-b border-[#5C5C5C] py-3">
               <span className="text-xs font-normal text-white">Draw type</span>
-              <span className="text-xs font-normal text-white">Daily</span>
+              <span className="text-xs font-normal text-white">
+                {currentTab}
+              </span>
             </div>
             <div className="flex items-center justify-between border-b border-[#5C5C5C] py-3">
               <span className="text-xs font-normal text-white">
@@ -63,7 +96,7 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             How many slots do you want?
           </h1>
           <div className="flex items-center justify-between gap-4">
-            <button type="button">
+            <button type="button" onClick={handleDecrease}>
               <svg
                 width="16"
                 height="4"
@@ -80,11 +113,16 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             <input
               type="number"
               value={amount}
-              onChange={(e) => setAmount(e.target.value)}
+              onChange={(e) => {
+                const value = parseInt(e.target.value, 10);
+                if (value >= 1 && value <= 100) {
+                  setAmount(value.toString());
+                }
+              }}
               placeholder="1"
               className="h-[66px] w-[96px] rounded-lg border border-[#636363] bg-transparent py-2 text-center font-luckiestGuy text-5xl focus:border-[#EB3BA8] focus:outline-none lg:text-6xl"
             />
-            <button type="button">
+            <button type="button" onClick={handleIncrease}>
               <svg
                 width="21"
                 height="20"
