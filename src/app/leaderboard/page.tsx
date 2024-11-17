@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "Leaderboard Tai.Gift",
 };
 
-export default function LeaderBoardPage({
+export default async function LeaderBoardPage({
   searchParams,
 }: {
   searchParams: Record<string, string>;
 }) {
-  const currentTab = searchParams.tab || "DAILY";
+  const currentTab = (await searchParams).tab || "DAILY";
 
   return (
     <section className="relative space-y-4 px-8 pb-12 pt-8">
@@ -26,14 +26,14 @@ export default function LeaderBoardPage({
         {tabs.slice(1).map((tab, index) => (
           <Link
             key={index}
-            href={`leaderboard?tab=${tab}`}
+            href={`/leaderboard?tab=${tab}`}
             className={`rounded-lg p-2 text-center capitalize ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
           >
             {tab}
           </Link>
         ))}
       </div>
-      <LeaderBoardRanking currentTab={currentTab} />
+      <LeaderBoardRanking tab={currentTab} />
     </section>
   );
 }
