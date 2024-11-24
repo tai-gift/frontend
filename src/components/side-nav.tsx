@@ -1,9 +1,7 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { navLinks } from "@/utils/constant";
-
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SideNav() {
   const pathname = usePathname();
@@ -11,19 +9,19 @@ export default function SideNav() {
   return (
     <nav className="sticky left-0 top-0 hidden h-screen flex-1 lg:block">
       <div className="pl-[150px] pt-8">
-        <h2 className="font-luckiestGuy text-[2.75rem]">LOGO</h2>
+        <h2 className="text-[2.75rem] font-normal">LOGO</h2>
       </div>
       <nav className="flex flex-col items-start justify-start gap-4 pl-[150px] pr-5 pt-4">
         {navLinks.map((link, index) => (
           <Link
             href={link.url}
             key={index}
-            className={`group flex min-h-14 w-full items-center justify-start gap-3 rounded-full px-4 transition-all duration-300 hover:bg-FuscousGrey-100/60 ${link.url === pathname ? "bg-FuscousGrey-100/60" : ""}`}
+            className={`group flex min-h-14 w-full items-center justify-start gap-3 rounded-full px-4 transition-all text-grey- duration-300 hover:bg-[#F5F5F5A3] ${link.url === pathname ? "bg-[#F5F5F5A3]" : ""}`}
           >
             <div
-              className={`group-hover:bg-activeBgLinear flex h-10 w-10 items-center justify-center rounded-full ${link.url === pathname ? "bg-activeBgLinear" : ""}`}
+              className={`flex h-10 w-10 items-center justify-center rounded-full group-hover:bg-primary group-hover:text-white ${link.url === pathname ? "bg-primary font-semibold text-white" : "text-grey-300"}`}
             >
-              <Image src={link.icon} alt="sidebar icon" />
+              {link.icon}
             </div>
             <span>{link.text}</span>
           </Link>

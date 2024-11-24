@@ -1,4 +1,3 @@
-import { CurrencyIcon } from "@/components/ui";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -7,9 +6,8 @@ export const metadata: Metadata = {
 export default function ReferralPage() {
   return (
     <section className="relative space-y-4 overflow-hidden px-8 pb-12 pt-8">
-      <div className="absolute top-[45%] h-[100px] w-[100px] rounded-full bg-[#FFCE00] blur-[90px]" />
-      <h1 className="font-luckiestGuy text-xl font-normal md:text-2xl uppercase">
-        INVITE FRIENDS
+      <h1 className="text-xl font-semibold capitalize md:text-2xl">
+        Invite Friends
       </h1>
       <div className="flex w-full flex-col items-center justify-center gap-8 pt-20">
         <svg
@@ -19,7 +17,7 @@ export default function ReferralPage() {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect x="11" width="120" height="120" rx="60" fill="#3E3E3B" />
+          <rect x="11" width="120" height="120" rx="60" fill="#E8F2FF" />
           <path
             d="M111.344 16.7263C110.584 14.8408 109.47 13.1257 108.049 11.6806C106.627 10.2213 104.938 9.07051 103.075 8.27489C101.214 7.47724 99.2043 7.06116 97.1828 7.03681C95.1491 7.01245 93.1397 7.392 91.2542 8.15108C89.048 9.03397 87.0772 10.4182 85.4961 12.1941L70.6736 28.4881L55.8512 12.1941C54.2579 10.4304 52.2851 9.04615 50.0931 8.15108C48.2055 7.37982 46.186 6.9881 44.1523 7.00028C42.1186 7.01245 40.0971 7.42853 38.2217 8.22618C36.3484 9.00962 34.6455 10.1726 33.2247 11.6177C31.7918 13.077 30.6633 14.8042 29.9042 16.6898C29.1452 18.5773 28.7656 20.5989 28.8022 22.6447C28.8265 24.6764 29.2548 26.6858 30.0524 28.5611C30.8602 30.4223 32.0232 32.1252 33.4947 33.5338C34.952 34.9545 36.6792 36.0708 38.5769 36.8177C40.9049 37.798 43.3547 38.9001 45.6827 38.6545L47.6433 38.9001L62.7114 39.7566L65.5285 40.124L70.9192 40.0022L79.4945 40.124L82.4334 40.8587L95.7864 38.6545L96.7667 38.7763C99.0947 39.0219 100.564 37.798 102.768 36.9395C106.566 35.3726 109.604 32.383 111.21 28.5977C112.813 24.8124 112.864 20.5481 111.344 16.7263ZM41.7634 31.6726C40.5984 31.2058 39.545 30.5198 38.6642 29.6389C37.7691 28.7682 37.0587 27.727 36.5696 26.5762C36.0784 25.4254 35.8206 24.1994 35.8085 22.9492C35.7963 21.701 36.0297 20.4629 36.4945 19.2999C36.9613 18.1349 37.6473 17.0815 38.5282 16.2006C39.3989 15.3056 40.4401 14.5952 41.5909 14.106C42.7438 13.6149 43.9798 13.3571 45.2179 13.3449C46.4661 13.3328 47.7042 13.5662 48.8672 14.031C50.2027 14.5952 51.4164 15.4416 52.4211 16.4828L66.7524 32.2855H46.1738C44.678 32.456 43.1598 32.247 41.7634 31.6726ZM99.4621 31.6726C98.1022 32.2226 96.6307 32.4317 95.1734 32.2855H74.5929L88.9262 16.4828C89.87 15.3543 91.0938 14.5099 92.4781 14.031C93.6431 13.5662 94.8791 13.3206 96.1294 13.3328C97.3796 13.3449 98.6157 13.6027 99.7665 14.0939C100.907 14.583 101.948 15.2934 102.829 16.1885C103.7 17.0815 104.386 18.1349 104.851 19.2999C105.721 21.6644 105.648 24.2603 104.644 26.5762C103.639 28.8798 101.788 30.7044 99.4621 31.6726Z"
             fill="#45B369"
@@ -40,14 +38,11 @@ export default function ReferralPage() {
           <h2 className="text-center text-lg font-semibold">Invite Friends</h2>
           <p className="max-w-[318px] text-center font-fustat text-xs md:text-sm">
             Get a free slot of draws for every friend who registers and funds
-            their account with at least{" "}
-            <span className="inline-flex items-center space-x-1">
-              <CurrencyIcon /> <span>200!</span>
-            </span>
+            their account with at least 1 EDU!
           </p>
           <button
             type="button"
-            className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
+            className="min-h-7 w-full rounded-full bg-primary py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
           >
             Share with Friends
           </button>

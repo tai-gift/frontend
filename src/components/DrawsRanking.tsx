@@ -2,7 +2,7 @@
 
 import React, { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
+import EdumonoIcon from "/public/svgs/EdumonoIcon.svg";
 import PrizePoolIcon from "/public/svgs/prize-pool.svg";
 import FirstPrize from "/public/svgs/first-prize.svg";
 import PrizeCard from "@/components/dashboard/prize-card";
@@ -14,10 +14,9 @@ import { formatEther } from "viem";
 
 interface DrawsRankingProps {
   draw: Draw;
-  currentTab: string;
 }
 
-const DrawsRanking: React.FC<DrawsRankingProps> = ({ draw, currentTab }) => {
+const DrawsRanking: React.FC<DrawsRankingProps> = ({ draw }) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -58,9 +57,7 @@ const DrawsRanking: React.FC<DrawsRankingProps> = ({ draw, currentTab }) => {
 
   return (
     <div key={draw.id} className="space-y-3">
-      <div
-        className={`neon-bx-shadow flex justify-between rounded-9 border border-NeonPink p-3 ${currentTab === "DAILY" ? "bg-dailyLinearBg" : currentTab === "WEEKLY" ? "bg-weeklyLinearBg" : "bg-monthlyLinearBg"}`}
-      >
+      <div className="neon-bx-shadow bg-prizeLinearBg flex justify-between rounded-9 border border-primary p-3 text-white">
         <div className="flex gap-2.5">
           <Image src={PrizePoolIcon} alt="" />
 
@@ -68,7 +65,7 @@ const DrawsRanking: React.FC<DrawsRankingProps> = ({ draw, currentTab }) => {
             <p className="font-semibold">Prize Pool</p>
 
             <div className="flex items-center gap-1">
-              <p className="translate-y-0.5 font-bold">
+              <p className="translate-y-1 font-bold">
                 <Odometer
                   value={prizePool}
                   fontSize="1rem"
@@ -76,9 +73,9 @@ const DrawsRanking: React.FC<DrawsRankingProps> = ({ draw, currentTab }) => {
                   loading={loading}
                 />
               </p>
-              <div className="flex items-center">
-                <Image src={TaikoIconMono} alt="Taiko icon mono" />
-                <span className="text-xs">taiko</span>
+              <div className="flex items-center gap-1">
+                <Image src={EdumonoIcon} alt="Edu icon mono" />
+                <span className="text-xs">EDU</span>
               </div>
             </div>
           </div>
@@ -91,28 +88,29 @@ const DrawsRanking: React.FC<DrawsRankingProps> = ({ draw, currentTab }) => {
           seconds={seconds}
           fontSize="1rem"
           color="white"
-          digitClassName="rounded-sm bg-FuscousGrey-200 p-1"
+          digitClassName="rounded-sm bg-countbgLinear p-1"
           onComplete={() => console.log("Timer completed!")}
         />
       </div>
 
-      <div className="dark-gradient-1 flex items-center justify-between rounded-9 px-3 py-3.5 font-semibold">
+      <div className="bg-grey-200 text-grey-600 flex items-center justify-between rounded-9 px-3 py-3.5 font-semibold">
         <div className="flex items-center gap-2">
           <Image src={FirstPrize} alt="" />
           <span className="text-base">First prize</span>
         </div>
 
         <p className="flex items-center gap-1.5 text-base font-semibold">
-          <span className="shrink-0">
-            <CurrencyIcon />
-          </span>
-          <span className="translate-y-0.5">
+          <span className="translate-y-1">
             <Odometer
               value={calculatePrize(0)}
               fontSize="1rem"
               duration={1500}
               loading={loading}
             />
+          </span>
+          <span className="flex items-center gap-1">
+            <CurrencyIcon />
+            <span className="text-xs">EDU</span>
           </span>
         </p>
       </div>

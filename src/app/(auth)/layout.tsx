@@ -14,10 +14,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <main className="fixed inset-0 z-[99999] w-full bg-Zeus px-4 py-8">
+    <main className="fixed inset-0 z-[99999] w-full bg-grey-800 px-4 py-8">
       <Link
         href="/"
-        className="text-center font-luckiestGuy text-4xl font-normal uppercase md:text-5xl block"
+        className="text-center text-4xl font-normal uppercase md:text-5xl block"
       >
         LOGO
       </Link>

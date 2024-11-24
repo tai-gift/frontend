@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
+import EdumonoIcon from "/public/svgs/EdumonoIcon.svg";
 import GoldTrophy from "/public/svgs/goldTrophy.svg";
 import SilverTrophy from "/public/svgs/silverTrophy.svg";
 import { useEffect, useState } from "react";
@@ -64,7 +64,7 @@ const EarnRanking: React.FC<EarnRankingProps> = ({ currentTab }) => {
 
   if (isLoading) {
     return (
-      <div className="flex h-[478px] w-full items-center justify-center rounded-lg bg-blackbgLinear">
+      <div className="flex h-[478px] w-full items-center justify-center rounded-lg bg-primary-300">
         <div className="text-center">Loading...</div>
       </div>
     );
@@ -73,8 +73,8 @@ const EarnRanking: React.FC<EarnRankingProps> = ({ currentTab }) => {
   return (
     <div className="w-full">
       {earnersData.length === 0 ? (
-        <div className="flex h-[478px] w-full flex-col items-center justify-center space-y-3 rounded-lg bg-blackbgLinear">
-          <div className="flex h-16 w-16 select-none items-center justify-center rounded-full bg-white/10">
+        <div className="flex h-[478px] w-full flex-col items-center justify-center space-y-3 rounded-lg bg-primary-300 text-grey-600">
+          <div className="flex h-16 w-16 select-none items-center justify-center rounded-full bg-primary text-white">
             <h6 className="text-xs font-medium md:text-sm">11</h6>
           </div>
           <div className="space-y-1">
@@ -91,10 +91,10 @@ const EarnRanking: React.FC<EarnRankingProps> = ({ currentTab }) => {
           {filteredEarners.map((earner, index) => (
             <div
               key={index}
-              className="grid min-h-16 w-full grid-cols-2 items-center gap-4 rounded-lg bg-tablebgLinear px-4 py-1"
+              className="grid min-h-16 w-full grid-cols-2 items-center gap-4 rounded-lg bg-primary-300 text-grey-600 px-4 py-1"
             >
               <div className="flex items-center justify-start gap-3">
-                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-300">
                   {earner.rank === 1 ? (
                     <Image
                       src={GoldTrophy}
@@ -117,7 +117,7 @@ const EarnRanking: React.FC<EarnRankingProps> = ({ currentTab }) => {
                   <h2 className="text-sm font-semibold capitalize">
                     {earner.drawType}
                   </h2>
-                  <p className="text-xs font-normal text-[#D9D9D9]">
+                  <p className="text-xs font-normal text-[#8E9093]">
                     {formatDate(earner.date)}
                   </p>
                 </div>
@@ -129,15 +129,15 @@ const EarnRanking: React.FC<EarnRankingProps> = ({ currentTab }) => {
                   </h4>
 
                   <Image
-                    src={TaikoIconMono}
-                    alt="Taiko icon mono"
+                    src={EdumonoIcon}
+                    alt="EDU icon mono"
                     width={16}
                     height={16}
                   />
 
-                  <span className="text-xs">taiko</span>
+                  <span className="text-xs">EDU</span>
                 </div>
-                <p className="text-sm font-normal text-[#D9D9D9]">
+                <p className="text-sm font-normal text-[#8E9093]">
                   {earner.claimed ? (
                     "Claimed"
                   ) : (

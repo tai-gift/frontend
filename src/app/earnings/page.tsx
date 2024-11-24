@@ -19,19 +19,19 @@ export default function EarningPage({
   return (
     <section className="space-y-4 px-8 pb-12 pt-8">
       <div className="flex w-full items-center justify-between">
-        <h1 className="font-luckiestGuy text-xl font-normal uppercase md:text-2xl">
+        <h1 className="font-semibold text-xl uppercase md:text-2xl">
           EARNINGS
         </h1>
         <button type="button">
           <Image src={RefreshIcon} alt="refresh icon" />
         </button>
       </div>
-      <div className="grid grid-cols-4 gap-2 rounded-lg bg-HeavyMetal p-1 text-base text-PastelGrey">
+      <div className="grid grid-cols-4 gap-2 rounded-lg text-base text-grey-600 border-b border-grey-500">
         {tabs.map((tab, index) => (
           <Link
             key={index}
             href={`earnings?tab=${tab}`}
-            className={`rounded-lg p-2 text-center capitalize ${tab === currentTab ? "bg-white text-Zeus" : ""} transition-all duration-300`}
+            className={`p-2 text-center capitalize ${tab === currentTab ? "border-b-2 text-primary border-primary font-medium" : "font-normal"} transition-all duration-300`}
           >
             {tab}
           </Link>

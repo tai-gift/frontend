@@ -16,9 +16,9 @@ export default function ConnectWallet() {
 
   return (
     <div className="grid h-[70vh] w-full place-content-center overflow-hidden">
-      <div className="flex w-full flex-col items-center justify-center gap-4 rounded-lg bg-Liver/80 px-10 py-8">
+      <div className="flex w-full flex-col items-center justify-center gap-4 rounded-lg bg-white px-10 py-8">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-center font-luckiestGuy text-xl font-normal uppercase">
+          <h2 className="text-center text-xl font-semibold uppercase">
             CONNECT WALLET
           </h2>
           <p className="max-w-[318px] text-center font-fustat text-xs md:text-sm">
@@ -47,7 +47,7 @@ export default function ConnectWallet() {
                 <button
                   type="button"
                   onClick={openConnectModal}
-                  className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
+                  className="min-h-7 w-full rounded-full bg-primary py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
                 >
                   Connect Wallet
                 </button>
@@ -57,7 +57,7 @@ export default function ConnectWallet() {
                 <button
                   type="button"
                   onClick={openChainModal}
-                  className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
+                  className="min-h-7 w-full rounded-full bg-primary py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
                 >
                   Switch Network
                 </button>
@@ -82,7 +82,7 @@ export default function ConnectWallet() {
             }
           }}
         </ConnectButton.Custom>
-        <Link href="/" className="text-sm font-bold text-white underline">
+        <Link href="/" className="text-sm font-bold text-grey-700 underline">
           Terms and Condition
         </Link>
       </div>

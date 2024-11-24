@@ -3,7 +3,7 @@ import Image from "next/image";
 import FirstImage from "/public/images/front-view-positive-woman-with-cancer.png";
 import SecondImage from "/public/images/about-bg-image.png";
 import ThirdImage from "/public/images/tai-gifts.png";
-import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
+import EdumonoIcon from "/public/svgs/EdumonoIcon.svg";
 import GoldTrophy from "/public/svgs/goldTrophy.svg";
 import SilverTrophy from "/public/svgs/silverTrophy.svg";
 import BronzeTrophy from "/public/svgs/bronze.svg";
@@ -30,6 +30,7 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;
+
   return (
     <div className="space-y-5 pt-20">
       <div className="grid w-full grid-cols-3 gap-4 align-top">
@@ -37,12 +38,12 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
           <div className="relative grid h-[70px] w-[70px] place-content-center rounded-full bg-leaderboardbgLinear p-1">
             <Image
               src={ThirdImage}
-              alt="Taiko icon mono"
+              alt="EDU icon mono"
               width={65}
               height={65}
               className="object-cover"
             />
-            <div className="absolute bottom-0 right-0 grid h-6 w-6 place-content-center rounded-full bg-Zeus">
+            <div className="absolute bottom-0 right-0 grid h-6 w-6 place-content-center rounded-full bg-white">
               <Image
                 src={BronzeTrophy}
                 alt="bronze icon"
@@ -61,13 +62,13 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
               </span>
 
               <Image
-                src={TaikoIconMono}
-                alt="Taiko icon mono"
+                src={EdumonoIcon}
+                alt="EDU icon mono"
                 width={16}
                 height={16}
               />
 
-              <span className="text-xs">taiko</span>
+              <span className="text-xs">EDU</span>
             </div>
           </div>
         </div>
@@ -75,12 +76,12 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
           <div className="relative grid h-[70px] w-[70px] place-content-center rounded-full bg-leaderboardbgLinear p-1">
             <Image
               src={FirstImage}
-              alt="Taiko icon mono"
+              alt="EDU icon mono"
               width={65}
               height={65}
               className="rounded-full object-cover"
             />
-            <div className="absolute bottom-0 right-0 grid h-6 w-6 place-content-center rounded-full bg-Zeus">
+            <div className="absolute bottom-0 right-0 grid h-6 w-6 place-content-center rounded-full bg-WHITE">
               <Image src={GoldTrophy} alt="gold icon" width={13} height={13} />
             </div>
           </div>
@@ -94,13 +95,13 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
               </span>
 
               <Image
-                src={TaikoIconMono}
-                alt="Taiko icon mono"
+                src={EdumonoIcon}
+                alt="EDU icon mono"
                 width={16}
                 height={16}
               />
 
-              <span className="text-xs">taiko</span>
+              <span className="text-xs">EDU</span>
             </div>
           </div>
         </div>
@@ -113,7 +114,7 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
               height={60}
               className="rounded-full object-cover"
             />
-            <div className="absolute bottom-0 right-0 grid h-6 w-6 place-content-center rounded-full bg-Zeus">
+            <div className="absolute bottom-0 right-0 grid h-6 w-6 place-content-center rounded-full bg-white">
               <Image
                 src={SilverTrophy}
                 alt="silver icon"
@@ -132,18 +133,18 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
               </span>
 
               <Image
-                src={TaikoIconMono}
-                alt="Taiko icon mono"
+                src={EdumonoIcon}
+                alt="EDU icon mono"
                 width={16}
                 height={16}
               />
 
-              <span className="text-xs">taiko</span>
+              <span className="text-xs">EDU</span>
             </div>
           </div>
         </div>
       </div>
-      <div className="grid min-h-8 w-full grid-cols-[40px_1fr_90px] items-center gap-4 rounded-lg bg-tablebgLinear px-4 py-1 lg:grid-cols-[90px_1fr_120px]">
+      <div className="grid min-h-8 w-full grid-cols-[40px_1fr_90px] items-center gap-4 rounded-lg bg-primary-300 text-grey-600 px-4 py-1 lg:grid-cols-[90px_1fr_120px]">
         <div className="text-start">
           <h3 className="font-fustat text-xs font-semibold md:text-base">
             Rank
@@ -164,7 +165,7 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
         {leaders?.map((leader, index) => (
           <div
             key={index + 4}
-            className="grid min-h-8 w-full grid-cols-[40px_1fr_60px] items-center gap-4 rounded-lg bg-tablebgLinear px-4 py-1 lg:grid-cols-[80px_1fr_120px]"
+            className="grid min-h-8 w-full grid-cols-[40px_1fr_60px] items-center gap-4 rounded-lg bg-primary-300 px-4 py-1 lg:grid-cols-[80px_1fr_120px]"
           >
             <div className="grid h-9 w-9 place-content-center rounded-full bg-leaderboardbgLinear p-4 lg:h-12 lg:w-12">
               <div className="flex h-5 w-5 select-none items-center justify-center rounded-full bg-white lg:h-9 lg:w-9">
@@ -174,7 +175,7 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <div className="flex h-6 w-6 select-none items-center justify-center rounded-full bg-[#4B4A48] lg:h-9 lg:w-9">
+              <div className="flex h-6 w-6 select-none items-center justify-center rounded-full bg-primary text-white lg:h-9 lg:w-9">
                 <span className="text-xs font-bold md:text-sm lg:text-base">
                   B{/*({leader?.account?.username?.charAt(0) ?? "U"})*/}
                 </span>
@@ -192,13 +193,13 @@ const LeaderBoardRanking: React.FC<LeaderBoardRankingProps> = () => {
               </h4>
 
               <Image
-                src={TaikoIconMono}
-                alt="Taiko icon mono"
+                src={EdumonoIcon}
+                alt="EDU icon mono"
                 width={16}
                 height={16}
               />
 
-              <span className="text-xs">taiko</span>
+              <span className="text-xs">EDU</span>
             </div>
           </div>
         ))}

@@ -14,25 +14,31 @@ const MobileNav: React.FC<MobileNavProps> = ({ searchParams }) => {
   const currentTab = (searchParams && searchParams.tab) || "DAILY";
 
   return (
-    <nav className="fixed bottom-2 left-1/2 z-10 flex w-[98%] -translate-x-1/2 transform flex-col items-start justify-start space-y-3 pb-3 backdrop-blur-20 lg:hidden">
+    <nav className="fixed bottom-0 z-10 w-full space-y-3 lg:hidden">
       <DonateButton className="w-full" paramTab={currentTab} />
-      <div className="flex min-h-14 w-full items-center justify-around rounded-full bg-FuscousGrey-100/60 py-3">
-        {navLinks.map((link, index) => (
-          <Link
-            href={link.url}
-            key={index}
-            className={`flex h-10 w-10 items-center justify-center rounded-full group-hover:bg-activeBgLinear ${link.url === pathname ? "bg-activeBgLinear" : ""}`}
-          >
-            <Image src={link.icon} alt="mobile sidebar icon" />
-          </Link>
-        ))}
-      </div>
-      <div className="flex w-full items-center justify-around">
-        {navLinks.map((link, index) => (
-          <Link href={link.url} key={index} className={`text-xs font-bold`}>
-            {link.text === "Leaderboard" ? "Leader" : link.text}
-          </Link>
-        ))}
+      <div className="flex w-full flex-col items-start justify-start space-y-1 bg-white pb-3">
+        <div className="flex w-full items-center justify-around rounded-full">
+          {navLinks.map((link, index) => (
+            <Link
+              href={link.url}
+              key={index}
+              className={`flex h-10 w-10 items-center justify-center rounded-full group-hover:bg-primary group-hover:text-white ${link.url === pathname ? "bg-primary text-white" : "text-grey-300"}`}
+            >
+              {link.icon}
+            </Link>
+          ))}
+        </div>
+        <div className="flex w-full items-center justify-around">
+          {navLinks.map((link, index) => (
+            <Link
+              href={link.url}
+              key={index}
+              className={`text-xs ${link.url === pathname ? "font-medium" : "font-normal text-[#9FA1A5]"}`}
+            >
+              {link.text === "Leaderboard" ? "Leader" : link.text}
+            </Link>
+          ))}
+        </div>
       </div>
     </nav>
   );

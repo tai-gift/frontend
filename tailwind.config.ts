@@ -16,6 +16,23 @@ export default {
         "9": "9.13px",
       },
       colors: {
+        primary: {
+          DEFAULT: "#1570EF",
+          100: "#F2F7FF",
+          200: "#E8F2FF",
+          300: "#F9F9F9",
+          400: "#00EDBE",
+        },
+        grey: {
+          100: "#EFEFEF",
+          200: "#F5F5F5",
+          300: "#BDC0C3",
+          400: "#DBDDE0",
+          500: "#F3F3F3",
+          600: "#2C2D2E",
+          700: "#2B2C2D",
+          800: "#2E333A",
+        },
         CharcoalGrey: "#414141",
         FuscousGrey: {
           100: "#59584E",
@@ -37,22 +54,21 @@ export default {
       },
     },
     backgroundImage: {
-      donationImage: "url(/images/front-view-positive-woman-with-cancer.png)",
+      // donationImage: "url(/images/front-view-positive-woman-with-cancer.png)",
       aboutBgImage: "url(/images/about-bg-image.png)",
+      heroBgLinear:
+        "linear-gradient(124.37deg, #1570EF 19.22%, #00EDBE 131.7%)",
       activeBgLinear:
         "linear-gradient(155.56deg, #DAC02E 15.62%, #E81899 104.34%)",
       tablebgLinear:
         "linear-gradient(278.27deg, #43423B -60.13%, #2E2D2A 78.23%)",
-      countbgLinear: "linear-gradient(180deg, #C83EB8 0%, #8808C3 100%)",
+      countbgLinear:
+        "linear-gradient(180deg, rgba(67, 66, 59, 0.2) 0%, rgba(81, 80, 67, 0.2) 100%)",
       blackbgLinear:
         "linear-gradient(278.27deg, #43423B -60.13%, #2E2D2A 78.23%)",
-      leaderboardbgLinear: "linear-gradient(180deg, #FFCE00 0%, #F28212 100%)",
-      dailyLinearBg:
-        "linear-gradient(95.64deg, #FF6600 -19.54%, #FFD700 122.21%)",
-      weeklyLinearBg:
-        "linear-gradient(95.64deg, #CE0BB7 -19.54%, #FFD700 122.21%)",
-      monthlyLinearBg:
-        "linear-gradient(95.64deg, #F91EDF -19.54%, #8808C3 82.9%)",
+      leaderboardbgLinear: "linear-gradient(180deg, #1570EF 0%, #00EDBE 100%)",
+      prizeLinearBg:
+        "linear-gradient(97.13deg, #1570EF -22.24%, #00EDBE 109.96%)",
     },
     backdropBlur: {
       20: "20px",

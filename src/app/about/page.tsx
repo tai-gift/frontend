@@ -13,14 +13,14 @@ export const metadata: Metadata = {
 export default function page() {
   return (
     <section className="px-4 py-6 md:px-6">
-      <h2 className="mb-7 font-luckiestGuy text-xl">About Tai.Gift</h2>
+      <h2 className="mb-7 font-semibold text-xl">About Tai.Gift</h2>
 
-      <div className="mb-4 flex h-[185px] items-center justify-center rounded-lg bg-white p-2">
+      <div className="mb-4 flex h-[185px] items-center justify-center rounded-lg bg-grey-600 p-2">
         <Image src={Logo} alt="logo" />
       </div>
 
       <div className="mb-9 space-y-1.5 text-center">
-        <h3 className="font-luckiestGuy text-lg">
+        <h3 className="font-semibold text-lg">
           Turn Your Donation into a Chance to Win Big and Make a Difference
         </h3>
         <p className="text-sm">
@@ -31,10 +31,10 @@ export default function page() {
       </div>
 
       <div className="mb-16 space-y-3.5">
-        <h3 className="font-luckiestGuy text-lg">Key Benefits</h3>
+        <h3 className="font-normal uppercase text-lg">Key Benefits</h3>
 
         <ul className="space-y-3.5 text-sm">
-          <li className="bg-Liver/60 flex min-h-24 gap-2 rounded-lg p-3">
+          <li className="bg-primary-300 flex min-h-24 gap-2 rounded-lg p-3">
             <Image src={Charity} alt="charity" className="self-start" />
 
             <p>
@@ -44,7 +44,7 @@ export default function page() {
             </p>
           </li>
 
-          <li className="bg-Liver/60 flex min-h-24 gap-2 rounded-lg p-3">
+          <li className="bg-primary-300 flex min-h-24 gap-2 rounded-lg p-3">
             <Image src={Reward} alt="reward" className="self-start" />
 
             <p>
@@ -54,7 +54,7 @@ export default function page() {
             </p>
           </li>
 
-          <li className="bg-Liver/60 flex min-h-24 gap-2 rounded-lg p-3">
+          <li className="bg-primary-300 flex min-h-24 gap-2 rounded-lg p-3">
             <Image src={Lock} alt="lock" className="self-start" />
 
             <p>
@@ -67,15 +67,15 @@ export default function page() {
       </div>
 
       <div className="mb-2.5 space-y-3.5">
-        <h3 className="font-luckiestGuy text-lg">How it Works</h3>
+        <h3 className="font-semibold text-lg">How it Works</h3>
 
         <ul className="text-sm">
           <li className="relative flex gap-2 rounded-lg pb-8 leading-6">
-            <div className="bg-NeonPink relative flex size-6 shrink-0 items-center justify-center rounded-full text-white">
+            <div className="bg-primary-100 relative flex size-6 shrink-0 items-center justify-center rounded-full text-primary">
               1
             </div>
 
-            <span className="bg-Liver absolute left-3 top-6 h-full w-[1px] -translate-x-1/2"></span>
+            <span className="bg-grey-100 absolute left-3 top-6 h-full w-[1px] -translate-x-1/2"></span>
 
             <p>
               Make a Donation: Contribute Taiko tokens to enter our monthly
@@ -83,11 +83,11 @@ export default function page() {
             </p>
           </li>
           <li className="relative flex gap-2 rounded-lg pb-8 leading-6">
-            <div className="bg-NeonPink relative flex size-6 shrink-0 items-center justify-center rounded-full text-white">
+            <div className="bg-primary-100 relative flex size-6 shrink-0 items-center justify-center rounded-full text-primary">
               2
             </div>
 
-            <span className="bg-Liver absolute left-3 top-6 h-full w-[1px] -translate-x-1/2"></span>
+            <span className="bg-grey-100 absolute left-3 top-6 h-full w-[1px] -translate-x-1/2"></span>
 
             <p>
               Join the Draw: Your donation gives you a chance to win exciting
@@ -95,7 +95,7 @@ export default function page() {
             </p>
           </li>
           <li className="flex gap-2 rounded-lg pb-8 leading-6">
-            <div className="bg-NeonPink relative flex size-6 shrink-0 items-center justify-center rounded-full text-white">
+            <div className="bg-primary-100 relative flex size-6 shrink-0 items-center justify-center rounded-full text-primary">
               3
             </div>
 
@@ -107,12 +107,12 @@ export default function page() {
         </ul>
       </div>
 
-      <button className="bg-NeonPink w-full rounded-[40px] px-7 py-3 text-sm font-bold">
+      <button className="bg-primary w-full rounded-[40px] px-7 py-3 text-sm text-white font-semibold">
         Join the Movement – Donate and Win Today
       </button>
 
       <div className="mt-16 space-y-3.5">
-        <h3 className="font-luckiestGuy text-lg">Common Questions</h3>
+        <h3 className="font-semibold text-lg">Common Questions</h3>
 
         <ul className="space-y-5 text-sm">
           <li className="border-SmokeyGrey flex justify-between border-b pb-3.5">
@@ -133,7 +133,7 @@ export default function page() {
       <div className="bg-aboutBgImage mt-16 flex min-h-[138px] flex-col justify-center gap-y-2.5 rounded-lg bg-black/60 bg-cover bg-no-repeat text-center">
         <p className="text-sm font-semibold">Ready to make a difference?</p>
 
-        <button className="bg-NeonPink mx-auto w-fit rounded-[40px] px-7 py-3 text-sm font-bold">
+        <button className="bg-primary text-white mx-auto w-fit rounded-[40px] px-7 py-3 text-sm font-bold">
           Donate now and enter the draw!
         </button>
       </div>
