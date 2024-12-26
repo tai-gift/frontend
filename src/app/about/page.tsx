@@ -1,10 +1,10 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import Logo from "/public/svgs/tai-gifts.svg";
 import Charity from "/public/svgs/charity.svg";
 import Reward from "/public/svgs/reward.svg";
 import Lock from "/public/svgs/lock.svg";
 import ArrowDown from "/public/svgs/arrow-down.svg";
+import EduchainLogo from "/public/svgs/EduchainLogo.svg";
 
 export const metadata: Metadata = {
   title: "About Tai.Gift",
@@ -15,8 +15,20 @@ export default function page() {
     <section className="px-4 py-6 md:px-6">
       <h2 className="mb-7 font-semibold text-xl">About Tai.Gift</h2>
 
-      <div className="mb-4 flex h-[185px] items-center justify-center rounded-lg bg-grey-600 p-2">
-        <Image src={Logo} alt="logo" />
+      <div className="bg-heroBgLinear text-white relative h-[185px] rounded-lg mb-4">
+        <div className="absolute bottom-0 left-[18px]">
+          <div className="mb-9 space-y-2">
+            <Image src={EduchainLogo} alt="EDU logo" />
+
+            <p className="w-[126px] text-[1.141rem] font-light">
+              For <span className="font-semibold">Education Funds</span>
+            </p>
+          </div>
+        </div>
+
+        <p className="absolute bottom-[80px] right-[21px] w-[89.02px] text-[1.141rem] font-light">
+          Save a <span className="font-semibold">life</span> today
+        </p>
       </div>
 
       <div className="mb-9 space-y-1.5 text-center">
@@ -78,7 +90,7 @@ export default function page() {
             <span className="bg-grey-100 absolute left-3 top-6 h-full w-[1px] -translate-x-1/2"></span>
 
             <p>
-              Make a Donation: Contribute Taiko tokens to enter our monthly
+              <b>Make a Donation:</b> Contribute Taiko tokens to enter our monthly
               raffle.
             </p>
           </li>
@@ -90,7 +102,7 @@ export default function page() {
             <span className="bg-grey-100 absolute left-3 top-6 h-full w-[1px] -translate-x-1/2"></span>
 
             <p>
-              Join the Draw: Your donation gives you a chance to win exciting
+              <b>Join the Draw:</b> Your donation gives you a chance to win exciting
               rewards.
             </p>
           </li>
@@ -100,7 +112,7 @@ export default function page() {
             </div>
 
             <p>
-              Support Charities: Funds raised each month go directly to
+              <b>Support Charities:</b> Funds raised each month go directly to
               preselected charities, supporting impactful causes.
             </p>
           </li>
@@ -130,7 +142,7 @@ export default function page() {
         </ul>
       </div>
 
-      <div className="bg-aboutBgImage mt-16 flex min-h-[138px] flex-col justify-center gap-y-2.5 rounded-lg bg-black/60 bg-cover bg-no-repeat text-center">
+      <div className="bg-aboutBgImage mt-16 flex min-h-[138px] flex-col justify-center gap-y-2.5 rounded-lg bg-black/80 text-white bg-cover bg-no-repeat text-center">
         <p className="text-sm font-semibold">Ready to make a difference?</p>
 
         <button className="bg-primary text-white mx-auto w-fit rounded-[40px] px-7 py-3 text-sm font-bold">
