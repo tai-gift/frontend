@@ -13,9 +13,9 @@ export const metadata: Metadata = {
 export default function page() {
   return (
     <section className="px-4 py-6 md:px-6">
-      <h2 className="mb-7 font-semibold text-xl">About Tai.Gift</h2>
+      <h2 className="mb-7 text-xl font-semibold">About Tai.Gift</h2>
 
-      <div className="bg-heroBgLinear text-white relative h-[185px] rounded-lg mb-4">
+      <div className="relative mb-4 h-[185px] rounded-lg bg-heroBgLinear text-white">
         <div className="absolute bottom-0 left-[18px]">
           <div className="mb-9 space-y-2">
             <Image src={EduchainLogo} alt="EDU logo" />
@@ -32,7 +32,7 @@ export default function page() {
       </div>
 
       <div className="mb-9 space-y-1.5 text-center">
-        <h3 className="font-semibold text-lg">
+        <h3 className="text-lg font-semibold">
           Turn Your Donation into a Chance to Win Big and Make a Difference
         </h3>
         <p className="text-sm">
@@ -43,10 +43,10 @@ export default function page() {
       </div>
 
       <div className="mb-16 space-y-3.5">
-        <h3 className="font-normal uppercase text-lg">Key Benefits</h3>
+        <h3 className="text-lg font-normal uppercase">Key Benefits</h3>
 
         <ul className="space-y-3.5 text-sm">
-          <li className="bg-primary-300 flex min-h-24 gap-2 rounded-lg p-3">
+          <li className="flex min-h-24 gap-2 rounded-lg bg-primary-300 p-3">
             <Image src={Charity} alt="charity" className="self-start" />
 
             <p>
@@ -56,7 +56,7 @@ export default function page() {
             </p>
           </li>
 
-          <li className="bg-primary-300 flex min-h-24 gap-2 rounded-lg p-3">
+          <li className="flex min-h-24 gap-2 rounded-lg bg-primary-300 p-3">
             <Image src={Reward} alt="reward" className="self-start" />
 
             <p>
@@ -66,7 +66,7 @@ export default function page() {
             </p>
           </li>
 
-          <li className="bg-primary-300 flex min-h-24 gap-2 rounded-lg p-3">
+          <li className="flex min-h-24 gap-2 rounded-lg bg-primary-300 p-3">
             <Image src={Lock} alt="lock" className="self-start" />
 
             <p>
@@ -79,35 +79,35 @@ export default function page() {
       </div>
 
       <div className="mb-2.5 space-y-3.5">
-        <h3 className="font-semibold text-lg">How it Works</h3>
+        <h3 className="text-lg font-semibold">How it Works</h3>
 
         <ul className="text-sm">
           <li className="relative flex gap-2 rounded-lg pb-8 leading-6">
-            <div className="bg-primary-100 relative flex size-6 shrink-0 items-center justify-center rounded-full text-primary">
+            <div className="relative flex size-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary">
               1
             </div>
 
-            <span className="bg-grey-100 absolute left-3 top-6 h-full w-[1px] -translate-x-1/2"></span>
+            <span className="absolute left-3 top-6 h-full w-[1px] -translate-x-1/2 bg-grey-100"></span>
 
             <p>
-              <b>Make a Donation:</b> Contribute Taiko tokens to enter our monthly
-              raffle.
+              <b>Make a Donation:</b> Contribute Taiko tokens to enter our
+              monthly raffle.
             </p>
           </li>
           <li className="relative flex gap-2 rounded-lg pb-8 leading-6">
-            <div className="bg-primary-100 relative flex size-6 shrink-0 items-center justify-center rounded-full text-primary">
+            <div className="relative flex size-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary">
               2
             </div>
 
-            <span className="bg-grey-100 absolute left-3 top-6 h-full w-[1px] -translate-x-1/2"></span>
+            <span className="absolute left-3 top-6 h-full w-[1px] -translate-x-1/2 bg-grey-100"></span>
 
             <p>
-              <b>Join the Draw:</b> Your donation gives you a chance to win exciting
-              rewards.
+              <b>Join the Draw:</b> Your donation gives you a chance to win
+              exciting rewards.
             </p>
           </li>
           <li className="flex gap-2 rounded-lg pb-8 leading-6">
-            <div className="bg-primary-100 relative flex size-6 shrink-0 items-center justify-center rounded-full text-primary">
+            <div className="relative flex size-6 shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary">
               3
             </div>
 
@@ -119,35 +119,37 @@ export default function page() {
         </ul>
       </div>
 
-      <button className="bg-primary w-full rounded-[40px] px-7 py-3 text-sm text-white font-semibold">
+      <button className="w-full rounded-[40px] bg-primary px-7 py-3 text-sm font-semibold text-white">
         Join the Movement – Donate and Win Today
       </button>
 
       <div className="mt-16 space-y-3.5">
-        <h3 className="font-semibold text-lg">Common Questions</h3>
+        <h3 className="text-lg font-semibold">Common Questions</h3>
 
         <ul className="space-y-5 text-sm">
-          <li className="border-SmokeyGrey flex justify-between border-b pb-3.5">
+          <li className="flex justify-between border-b border-SmokeyGrey pb-3.5">
             <p>Is there a guaranteed prize?</p>
             <Image src={ArrowDown} alt="arrow down" />
           </li>
-          <li className="border-SmokeyGrey flex justify-between border-b pb-3.5">
+          <li className="flex justify-between border-b border-SmokeyGrey pb-3.5">
             <p>What if I don&apos;st win?</p>
             <Image src={ArrowDown} alt="arrow down" />
           </li>
-          <li className="border-SmokeyGrey flex justify-between border-b pb-3.5">
+          <li className="flex justify-between border-b border-SmokeyGrey pb-3.5">
             <p>Is Tai.Gift secure?</p>
             <Image src={ArrowDown} alt="arrow down" />
           </li>
         </ul>
       </div>
 
-      <div className="bg-aboutBgImage mt-16 flex min-h-[138px] flex-col justify-center gap-y-2.5 rounded-lg bg-black/80 text-white bg-cover bg-no-repeat text-center">
-        <p className="text-sm font-semibold">Ready to make a difference?</p>
+      <div className="mt-16 min-h-[138px] rounded-lg bg-aboutBgImage">
+        <div className="min-h-[138px] w-full rounded-lg bg-black/80 bg-cover bg-no-repeat flex flex-col justify-center text-center text-white gap-y-2.5">
+          <p className="text-sm font-semibold">Ready to make a difference?</p>
 
-        <button className="bg-primary text-white mx-auto w-fit rounded-[40px] px-7 py-3 text-sm font-bold">
-          Donate now and enter the draw!
-        </button>
+          <button className="mx-auto w-fit rounded-[40px] bg-primary px-7 py-3 text-sm font-bold text-white">
+            Donate now and enter the draw!
+          </button>
+        </div>
       </div>
     </section>
   );
