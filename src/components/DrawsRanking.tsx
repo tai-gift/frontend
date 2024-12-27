@@ -32,8 +32,8 @@ const DrawsRanking: React.FC<DrawsRankingProps> = ({ draw }) => {
       formatEther(
         BigInt(
           draw.currentPrizePool > draw.guaranteedPrize
-            ? draw.currentPrizePool
-            : draw.guaranteedPrize,
+            ? Number(draw.currentPrizePool)
+            : Number(draw.guaranteedPrize),
         ),
       )?.toString() ?? "0"
     );
