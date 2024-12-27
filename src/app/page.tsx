@@ -22,45 +22,50 @@ export default async function Home({
   const draw = serializeRaffle(
     await getActiveDrawsByType(DrawType[currentTab as keyof typeof DrawType]),
   );
-  console.log("🚀 ~ draw:", draw)
+  console.log("🚀 ~ draw:", draw);
 
   return (
     <section className="relative pb-10">
-      <header className="no-scrollbar flex justify-center gap-4 overflow-x-scroll bg-primary text-white p-2.5 text-sm md:gap-9">
-        <div className="flex shrink-0 items-center gap-2">
-          <span className="flex size-[29.67px] items-center justify-center rounded-full bg-CaribbeanGreen">
-            C
-          </span>
-
-          <p>@cystic deposited</p>
-
-          <div className="flex items-center gap-0.5">
-            <span className="flex size-4 items-center justify-center rounded-full bg-DimorphothecaMagenta">
-              <Image src={TaikoIcon} alt="taiko icon" />
+      <header className="flex justify-center gap-4 overflow-x-hidden bg-primary p-2.5 text-sm text-white md:gap-9">
+        <div
+          className="flex justify-center gap-4"
+          style={{ animation: "marquee 20s linear infinite" }}
+        >
+          <div className="flex shrink-0 items-center gap-2">
+            <span className="flex size-[29.67px] items-center justify-center rounded-full bg-CaribbeanGreen">
+              C
             </span>
 
-            <p>2,000</p>
+            <p>@cystic deposited</p>
+
+            <div className="flex items-center gap-0.5">
+              <span className="flex size-4 items-center justify-center rounded-full bg-DimorphothecaMagenta">
+                <Image src={TaikoIcon} alt="taiko icon" />
+              </span>
+
+              <p>2,000</p>
+            </div>
           </div>
-        </div>
 
-        <div className="flex shrink-0 items-center gap-2">
-          <span className="flex size-[29.67px] items-center justify-center rounded-full bg-DeepFuchsia">
-            B
-          </span>
-
-          <p>@bami won</p>
-
-          <div className="flex items-center gap-0.5">
-            <span className="flex size-4 items-center justify-center rounded-full bg-DimorphothecaMagenta">
-              <Image src={TaikoIcon} alt="taiko icon" />
+          <div className="flex shrink-0 items-center gap-2">
+            <span className="flex size-[29.67px] items-center justify-center rounded-full bg-DeepFuchsia">
+              B
             </span>
 
-            <p>2,000 in daily draws</p>
+            <p>@bami won</p>
+
+            <div className="flex items-center gap-0.5">
+              <span className="flex size-4 items-center justify-center rounded-full bg-DimorphothecaMagenta">
+                <Image src={TaikoIcon} alt="taiko icon" />
+              </span>
+
+              <p>2,000 in daily draws</p>
+            </div>
           </div>
         </div>
       </header>
 
-      <section className="space-y-4 px-4 lg:px-8 py-4">
+      <section className="space-y-4 px-4 py-4 lg:px-8">
         <div className="flex items-center justify-between py-0.5">
           <button className="flex items-center justify-center gap-1.5 rounded-[27.39px] bg-grey-100 px-2 py-1">
             <Image src={Fire} alt="fire" />
@@ -68,7 +73,7 @@ export default async function Home({
             <span className="font-sans text-base">1</span>
           </button>
 
-          <h2 className="text-[1.426rem] leading-[1.426rem] font-bold">
+          <h2 className="text-[1.426rem] font-bold leading-[1.426rem]">
             WELCOME
           </h2>
 
@@ -124,12 +129,12 @@ export default async function Home({
             <h2 className="text-[1.4268rem] text-grey-600">Draws</h2>
           </div>
 
-          <div className="grid grid-cols-3 gap-2 text-base text-grey-600 border-b border-grey-500">
+          <div className="grid grid-cols-3 gap-2 border-b border-grey-500 text-base text-grey-600">
             {tabs.slice(1).map((tab, index) => (
               <Link
                 key={index}
                 href={`?tab=${tab}`}
-                className={`p-2 text-center ${tab === currentTab ? "border-b-2 text-primary border-primary font-medium" : "font-normal"} transition-all duration-300`}
+                className={`p-2 text-center ${tab === currentTab ? "border-b-2 border-primary font-medium text-primary" : "font-normal"} transition-all duration-300`}
               >
                 {tab}
               </Link>

@@ -31,7 +31,7 @@ export default function PrizeCard({
       >
         <div
           style={{
-            animation: "rotating-shadow 4s linear infinite",
+            animation: "rotating-shadow 1s linear infinite",
           }}
           className="flex size-7 items-center justify-center rounded-full bg-white text-base font-bold text-BlackEel shadow-black/[0.341]"
         >

@@ -14,17 +14,17 @@ const Steps: React.FC = () => {
     {
       id: "01",
       image: Step1,
-      desc: "A bridge between incentivized giving and impactful social contributions",
+      desc: "Choose from Daily, Weekly, or Monthly donation options, each with a chance to win amazing prizes! Your generosity could bring you rewards, with Daily prizes drawn twice a day!",
     },
     {
       id: "02",
       image: Step2,
-      desc: "A bridge between incentivized giving and impactful social contributions",
+      desc: "The prize pool, funded by participant donations, is shared among 10 lucky winners using a top-heavy distribution strategy. As donations grow, so does the prize pool.",
     },
     {
       id: "03",
       image: Step3,
-      desc: "A bridge between incentivized giving and impactful social contributions",
+      desc: "Donate daily in any of the options to start your streak! Stay consistent for a chance to unlock multipliers when you win and other exciting rewards.",
     },
     {
       id: "04",
@@ -34,13 +34,13 @@ const Steps: React.FC = () => {
   ];
 
   return (
-    <div className="bg-grey-200 mt-4 max-w-[295px] space-y-3 rounded-lg px-3 pt-3">
+    <div className="mt-4 max-w-[295px] space-y-3 rounded-lg bg-grey-200 px-3 pt-3">
       <button
         type="button"
         onClick={() => setOpenDrop((prev) => !prev)}
         className="flex w-full select-none items-center justify-between border-b border-[#EEEEEE] py-2 pb-3 outline-none"
       >
-        <h6 className="text-grey-600 text-base font-medium">Getting Started</h6>
+        <h6 className="text-base font-medium text-grey-600">Getting Started</h6>
         <svg
           className={`${openDrop ? "rotate-0" : "-rotate-180"} transition-transform duration-200`}
           width="24"
@@ -68,7 +68,7 @@ const Steps: React.FC = () => {
         </svg>
       </button>
       <div
-        className={`text-dark-600 w-full select-none overflow-hidden text-base font-normal transition-all duration-300 ${
+        className={`text-dark-600 flex w-full select-none flex-col gap-4 overflow-hidden text-base font-normal transition-all duration-300 ${
           openDrop ? "max-h-[1000px] py-4" : "max-h-0"
         }`}
       >
@@ -77,11 +77,11 @@ const Steps: React.FC = () => {
             key={step.id}
             className="flex flex-col items-start justify-start gap-2"
           >
-            <h5 className="text-grey-600 text-base font-medium">
+            <h5 className="text-base font-medium text-grey-600">
               {index + 1}.
             </h5>
             <Image src={step.image} alt={`step ${index + 1} preview image`} />
-            <p className="text-grey-600 text-base font-normal">{step.desc}</p>
+            <p className="text-sm font-normal text-grey-600">{step.desc}</p>
           </div>
         ))}
       </div>

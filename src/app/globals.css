@@ -57,3 +57,9 @@ input[type="number"] {
   75% { box-shadow: 2px -2px 3px; }
   100% { box-shadow: 2px 2px 3px; }
 }
+
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}

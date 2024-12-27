@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import BlackLogo from "/public/images/logo/WegiftEduBlack.png";
+import ColorLogo from "/public/images/logo/WeGiftEducationLogo.svg";
+import Link from "next/link";
 
 interface LogoComponentProps {
   className?: string;
@@ -9,10 +10,9 @@ interface LogoComponentProps {
 const LogoComponent: React.FC<LogoComponentProps> = ({ className }) => {
   return (
     <Image
-      src={BlackLogo}
-      alt="Edu gift logo"
-      className={`h-[40px] w-full object-contain ${className}`}
-      priority
+      src={ColorLogo}
+      alt="WeGift Education Logo"
+      className={`w-full object-contain ${className}`}
     />
   );
 };

@@ -9,8 +9,10 @@ export default function SideNav() {
 
   return (
     <nav className="sticky left-0 top-0 hidden h-screen flex-1 lg:block">
-      <div className="pl-[150px] pr-5 pt-8 flex items-center justify-self-start">
-        <LogoComponent />
+      <div className="mb-12 flex items-center justify-self-start pl-[150px] pr-5 pt-12">
+        <Link href="/">
+          <LogoComponent />
+        </Link>
       </div>
       <nav className="flex flex-col items-start justify-start gap-4 pl-[150px] pr-5 pt-4">
         {navLinks.map((link, index) => (
