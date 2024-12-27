@@ -69,6 +69,7 @@ export default {
       leaderboardbgLinear: "linear-gradient(180deg, #1570EF 0%, #00EDBE 100%)",
       prizeLinearBg:
         "linear-gradient(97.13deg, #1570EF -22.24%, #00EDBE 109.96%)",
+      "ball-linear": "linear-gradient(180deg, #00EDBE 0%, #1570EF 100%)",
     },
     backdropBlur: {
       20: "20px",
