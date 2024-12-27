@@ -57,7 +57,13 @@ const DrawsRanking: React.FC<DrawsRankingProps> = ({ draw }) => {
 
   return (
     <div key={draw.id} className="space-y-3">
-      <div className="neon-bx-shadow bg-prizeLinearBg flex justify-between rounded-9 border border-primary p-3 text-white">
+      <div
+        style={{
+          animation: "moving-gradient-frames 2s ease infinite",
+          backgroundSize: "200% 200%",
+        }}
+        className="neon-bx-shadow flex justify-between rounded-9 border border-primary bg-prizeLinearBg p-3 text-white"
+      >
         <div className="flex gap-2.5">
           <Image src={PrizePoolIcon} alt="" />
 
@@ -93,7 +99,7 @@ const DrawsRanking: React.FC<DrawsRankingProps> = ({ draw }) => {
         />
       </div>
 
-      <div className="bg-grey-200 text-grey-600 flex items-center justify-between rounded-9 px-3 py-3.5 font-semibold">
+      <div className="flex items-center justify-between rounded-9 bg-grey-200 px-3 py-3.5 font-semibold text-grey-600">
         <div className="flex items-center gap-2">
           <Image src={FirstPrize} alt="" />
           <span className="text-base">First prize</span>

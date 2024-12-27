@@ -21,13 +21,24 @@ export default function PrizeCard({
   }, []);
 
   return (
-    <div className="bg-grey-200 text-grey-600 flex h-[126px] flex-col items-center justify-center gap-2 rounded-9">
-      <div className="flex size-10 items-center justify-center rounded-full bg-primary-400">
-        <div className="flex size-7 items-center justify-center rounded-full bg-white text-base font-bold text-BlackEel">
+    <div className="flex h-[126px] flex-col items-center justify-center gap-2 rounded-9 bg-grey-200 text-grey-600">
+      <div
+        style={{
+          animation: "moving-gradient-frames 2s ease infinite",
+          backgroundSize: "120% 120%",
+        }}
+        className="bg-ball-linear flex size-10 items-center justify-center rounded-full"
+      >
+        <div
+          style={{
+            animation: "rotating-shadow 4s linear infinite",
+          }}
+          className="flex size-7 items-center justify-center rounded-full bg-white text-base font-bold text-BlackEel shadow-black/[0.341]"
+        >
           {number}
         </div>
       </div>
-      <p className="flex flex-col justify-center items-center gap-1.5 text-base font-semibold">
+      <p className="flex flex-col items-center justify-center gap-1.5 text-base font-semibold">
         <span className="translate-y-1">
           <Odometer
             value={price}
