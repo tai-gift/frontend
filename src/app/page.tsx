@@ -20,7 +20,7 @@ export default async function Home({
 }) {
   const currentTab = (await searchParams).tab || "DAILY";
   const draw = serializeRaffle(
-    await getActiveDrawsByType(DrawType[currentTab]),
+    await getActiveDrawsByType(DrawType[currentTab as keyof typeof DrawType]),
   );
   console.log("🚀 ~ draw:", draw)
 
@@ -60,7 +60,7 @@ export default async function Home({
         </div>
       </header>
 
-      <section className="space-y-4 px-8 py-4">
+      <section className="space-y-4 px-4 lg:px-8 py-4">
         <div className="flex items-center justify-between py-0.5">
           <button className="flex items-center justify-center gap-1.5 rounded-[27.39px] bg-grey-100 px-2 py-1">
             <Image src={Fire} alt="fire" />

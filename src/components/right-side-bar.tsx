@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { Steps } from "./ui";
+import { LogoComponent, Steps } from "./ui";
 
 export default function RightSideBar() {
   return (
     <aside className="z-10 hidden h-screen flex-1 px-8 pt-20 lg:block">
-      <div className="bg-grey-200 text-grey-600 max-w-[295px] space-y-8 rounded-9 px-3.5 py-5">
-        <h2 className="text-center text-[2.75rem] font-normal">LOGO</h2>
+      <div className="max-w-[295px] space-y-8 rounded-9 bg-grey-200 px-3.5 py-5 text-grey-600">
+        <LogoComponent />
 
         <div className="space-y-2.5">
           <p className="text-base">
