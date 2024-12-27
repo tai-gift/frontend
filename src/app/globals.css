@@ -24,7 +24,9 @@
 }
 
 .neon-bx-shadow {
-  box-shadow: 0px 1px 14px 0px rgba(235, 59, 168, 0.6);
+  /*box-shadow: 0px 1px 14px 0px rgba(235, 59, 168, 0.6);*/
+  box-shadow: 0 1px 14px 0 rgba(21, 112, 239, 0.4);
+
 }
 
 .bx-shadow-1 {
@@ -40,4 +42,24 @@ input[type="number"]::-webkit-inner-spin-button {
 /* Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
+}
+
+@keyframes moving-gradient-frames {
+  0% { background-position: 0 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0 50%; }
+}
+
+@keyframes rotating-shadow {
+  0% { box-shadow: 2px 2px 3px; }
+  25% { box-shadow: -2px 2px 3px; }
+  50% { box-shadow: -2px -2px 3px; }
+  75% { box-shadow: 2px -2px 3px; }
+  100% { box-shadow: 2px 2px 3px; }
+}
+
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
 }

@@ -13,7 +13,7 @@ import React from "react";
 import { DrawProvider } from "@/contexts/DrawProvider";
 
 export const metadata: Metadata = {
-  title: "Tai.gift",
+  title: "Edu-Chain",
   description: "Donate to Charities, Win Prizes",
 };
 
@@ -27,7 +27,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fustat.variable} ${luckiestGuy.variable} font-fustat text-white antialiased`}
+        className={`${fustat.variable} ${luckiestGuy.variable} font-fustat text-black antialiased`}
       >
         <GoogleTagManager id={"GTM-PRGLKX78"} />
 
@@ -35,10 +35,10 @@ export default async function RootLayout({
           <AppRainbowKitProvider cookie={(await headers()).get("cookie")}>
             <AccountProvider>
               <DrawProvider>
-                <section className="flex min-h-screen bg-black pb-32 lg:pb-10">
+                <section className="flex min-h-screen bg-white pb-32 lg:pb-10">
                   <SideNav />
 
-                  <main className="w-full border-x border-BlackCow lg:w-[596px]">
+                  <main className="w-full border-x border-grey-400 lg:w-[596px]">
                     {children}
                   </main>
 

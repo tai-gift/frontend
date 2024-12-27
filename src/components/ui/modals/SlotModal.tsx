@@ -57,31 +57,31 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[999999] grid h-screen place-content-center overflow-hidden bg-[#252422] p-4 transition-opacity">
+    <div className="fixed inset-0 z-[999999] grid h-screen place-content-center overflow-hidden bg-grey-800 p-4 transition-opacity">
       {viewDetail ? (
-        <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-Liver/80 p-4 md:w-[415px]">
+        <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white p-4 md:w-[415px]">
           <div className="flex flex-col items-center justify-center gap-1">
-            <h1 className="max-w-[234px] text-center font-luckiestGuy text-xl font-normal">
+            <h1 className="max-w-[234px] text-center text-xl font-semibold">
               Confirm Slot
             </h1>
             <p className="max-w-[299px] text-center text-sm font-normal">
               You are about to purchase a slot from the daily draws
             </p>
           </div>
-          <div className="w-full border border-[#636363] p-4">
-            <div className="flex items-center justify-between border-b border-[#5C5C5C] py-3">
+          <div className="w-full border border-[#D7D7D8] p-4">
+            <div className="flex items-center justify-between border-b border-[#D7D7D8] py-3">
               <span className="text-xs font-normal text-white">Draw type</span>
               <span className="text-xs font-normal text-white">
                 {selectedDraw?.type}
               </span>
             </div>
-            <div className="flex items-center justify-between border-b border-[#5C5C5C] py-3">
+            <div className="flex items-center justify-between border-b border-[#D7D7D8] py-3">
               <span className="text-xs font-normal text-white">
                 Number of slots
               </span>
               <span className="text-xs font-normal text-white">{amount}</span>
             </div>
-            <div className="flex items-center justify-between border-b border-[#5C5C5C] py-3">
+            <div className="flex items-center justify-between border-b border-[#D7D7D8] py-3">
               <span className="text-xs font-normal text-white">You pay</span>
               <div className="flex items-center gap-2 text-xs font-normal">
                 <span>You pay</span>
@@ -99,13 +99,13 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             type="button"
             onClick={handleDonate}
             disabled={processing}
-            className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90 disabled:bg-opacity-60"
+            className="min-h-7 w-full rounded-full bg-primary py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90 disabled:bg-opacity-60"
           >
             {processing ? "Processing..." : "Confirm"}
           </button>
         </div>
       ) : (
-        <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-Liver/80 p-4 md:w-[415px]">
+        <div className="flex flex-col items-center justify-center gap-4 rounded-lg bg-white p-4 md:w-[415px]">
           <h1 className="max-w-[234px] text-center font-luckiestGuy text-xl font-normal">
             How many slots do you want?
           </h1>
@@ -134,7 +134,7 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
                 }
               }}
               placeholder="1"
-              className="h-[66px] w-[96px] rounded-lg border border-[#636363] bg-transparent py-2 text-center font-luckiestGuy text-5xl focus:border-[#EB3BA8] focus:outline-none lg:text-6xl"
+              className="h-[66px] w-[96px] rounded-lg border border-[#D7D7D8] bg-transparent py-2 text-center font-semibold text-5xl focus:border-primary focus:outline-none lg:text-6xl"
             />
             <button type="button" onClick={handleIncrease}>
               <svg
@@ -166,7 +166,7 @@ const SlotModal: React.FC<ModalProps> = ({ isOpen, onClose }) => {
             onClick={() => {
               setViewDetail(amount);
             }}
-            className="min-h-7 w-full rounded-full bg-[#EB3BA8] py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
+            className="min-h-7 w-full rounded-full bg-primary py-3 text-sm font-medium text-white outline-none transition-all duration-300 hover:opacity-90"
           >
             Donate Now
           </button>

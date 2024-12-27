@@ -2,8 +2,8 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import RightArrow from "/public/svgs/arrow-right.svg";
-import TaikoLogo from "/public/svgs/taiko-logo.svg";
-import TaikoIconMono from "/public/svgs/taiko-icon-mono.svg";
+import EduchainLogo from "/public/svgs/EduchainLogo.svg";
+import EdumonoIcon from "/public/svgs/EdumonoIcon.svg";
 import UserIcon from "/public/svgs/yellow-user-icon.svg";
 import DonateRankTable from "@/components/DonateRankTable";
 
@@ -16,18 +16,18 @@ export default function LearnMorePage() {
     <section className="space-y-4 px-8 pb-12 pt-8">
       <Link
         href="/"
-        className="flex items-center justify-start gap-4 font-luckiestGuy text-xl font-normal uppercase"
+        className="flex items-center justify-start gap-4 text-xl font-normal uppercase"
       >
         <Image src={RightArrow} alt="back arrow" />
         <span>GO BACK</span>
       </Link>
-      <div className="relative h-[296px] rounded-lg bg-donationImage bg-cover bg-center bg-no-repeat">
+      <div className="bg-heroBgLinear text-white relative h-[296px] rounded-lg">
         <div className="absolute bottom-16 left-[18px]">
           <div className="mb-9 space-y-2">
-            <Image src={TaikoLogo} alt="Taiko logo" />
+            <Image src={EduchainLogo} alt="EDU logo" />
 
             <p className="w-[126px] text-[1.141rem] font-light">
-              For <span className="font-semibold">Cancer</span> initiative
+              For <span className="font-semibold">Education Funds</span>
             </p>
           </div>
         </div>
@@ -36,13 +36,13 @@ export default function LearnMorePage() {
           Save a <span className="font-semibold">life</span> today
         </p>
       </div>
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full items-center justify-between bg-primary-300 rounded-lg py-2 px-4">
         <div className="flex w-fit items-center gap-1 rounded-[36.52px] bg-white/10 px-2 py-2 backdrop-blur-[28px]">
           <p className="text-[0.71rem] font-bold">200,000</p>
 
           <div className="flex items-center gap-2">
-            <Image src={TaikoIconMono} alt="Taiko icon mono" />
-            <span className="text-xs">taiko raised</span>
+            <Image src={EdumonoIcon} alt="Taiko icon mono" />
+            <span className="text-xs">EDU raised</span>
           </div>
         </div>
         <div className="flex w-fit items-center gap-1 rounded-[36.52px] bg-white/10 px-2 py-2 backdrop-blur-[28px]">
@@ -59,7 +59,7 @@ export default function LearnMorePage() {
         tincidunt sed est. In justo diam purus pulvinar dolor velit odio
         ultrices. Quam tortor vivamus metus sed augue.
       </p>
-      <h3 className="font-luckiestGuy text-xl font-normal">
+      <h3 className="text-xl font-semibold">
         Thanks to our donors
       </h3>
       <DonateRankTable />
